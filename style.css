@@ -1,0 +1,194 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    /*font-family: Arial, Verdana, Georgia;*/
+    font-family: 'Gill Sans','Gill Sans MT','Calibri','Trebuchet MS',sans-serif;
+}
+
+h1 {
+    font-size: 72px;
+    margin: 0;
+}
+
+p, li {
+    font-size: 22px;
+    line-height: 33px;
+}
+
+section {
+    background-color: #F8F8F8;
+    padding: 40px;
+    margin-top: 80px;
+    overflow: hidden;
+    position: relative;
+}
+
+section h1 {
+    text-align: center;
+}
+
+section iframe {
+    width: 100%;
+    height: 600px;
+}
+
+.header {
+    width: 100%;
+    position: relative;
+    padding: 40px 0 0;
+    display: initial;
+    background-color: white;
+}
+
+#name {
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.navigation {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+}
+
+.navigation ul {
+    list-style-type: none;
+    text-align: center;
+    overflow: hidden;
+}
+
+.navigation li {
+    display: inline-block;
+}
+
+.navigation a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    color: blue;
+}
+
+.navigation a:hover {
+    color: lightblue;
+}
+
+.navigation a:visited {
+    color: blue;
+}
+
+.navigation .icon {
+    display: none;
+}
+
+
+#mobile-nav {
+    display: none;
+}
+
+.main-content {
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#cover-div {
+    background-color: black;
+    height: 400px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#cover-text-wrapper {
+    margin: 0 auto;
+    display: block;
+    padding-left: 30%;
+}
+
+#cover-text {
+    font-size: 32px;
+    color: white;
+}
+
+#view-resume {
+    color: lightgray;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#cover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+#about-terminal {
+    background-color: black;
+}
+
+.right-column {
+    display: block;
+    width: 45%;
+    float: right;
+}
+
+.left-column {
+    display: block;
+    width: 50%;
+    float: left;
+}
+
+.js {
+    display: none;
+}
+
+/* When the screen is less than 800 pixels wide, 
+hide main nav links.  Show the link that should open and close 
+the mobile nav (.icon) */
+@media screen and (max-width: 800px) {
+    .navigation ul {
+        display: none;
+    }
+
+    .navigation a.icon {
+      display: block;
+    }
+
+    .navigation #mobile-nav {
+        position: sticky;
+        top: 100%;
+        height: 0px;
+        visibility: hidden;
+        display: block;
+        opacity: 0;
+        text-align: center;
+    }
+
+    #cover-div {
+        height: 150px;
+    }
+
+    #cover-text-wrapper {
+        position: absolute;
+        right: 0;
+        padding-right: 20%;
+    }
+
+    h1 {
+        font-size: 64px;
+        margin: 0;
+    }
+}

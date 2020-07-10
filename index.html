@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Spencer Lee</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/ico" href="Site_Files/favicon.ico">
+    <meta name="author" content="Spencer Lee">
+    <link href="style.css" type="text/css" rel="stylesheet">
+
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Spencer's pesonal resizing library -->
+    <script src="config.js" defer></script>
+    <script src="resizer.js" defer></script>
+
+    <!-- Load the main JavaScript -->
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <!-- Marker for the top of the page -->
+    <span id="top"></span>
+
+    <!-- Header -->
+    <div class="header">
+
+        <!-- Title -->
+        <div id="name">
+            <h1>Spencer Lee</h1>
+        </div>
+        
+        <!-- Navigation -->
+        <div id="topnav" class="navigation">
+
+            <!-- Hamburger icon for mobile only -->
+            <a id="hamburger-icon" href="javascript:void(0);" class="icon">
+                <i class="fa fa-bars"></i>
+            </a>
+
+            <!-- Desktop navigation -->
+            <ul>
+                <li><a data-targetElement="top">Home</a></li>
+                <li><a data-targetElement="about">About Me</a></li>
+                <li><a data-targetElement="projects">Projects</a></li>
+                <li><a data-targetElement="resume">Resume</a></li>
+                <li><a data-targetElement="contact">Contact</a></li>
+            </ul>
+
+            <!-- Mobile navigation -->
+            <div id="mobile-nav">
+                <a data-targetElement="top">Home</a>
+                <a data-targetElement="about">About Me</a>
+                <a data-targetElement="projects">Projects</a>
+                <a data-targetElement="resume">Resume</a>
+                <a data-targetElement="contact">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner across the page -->
+    <div id="cover-div">
+        <div id="cover-text-wrapper">
+            <p id="cover-text">
+                Hi! My name is Spencer Lee.
+                <br>
+                <a data-targetElement="resume" id="view-resume">View Resume</a>
+            </p>
+        </div>
+
+        <!-- The profile photo displayed at the left of the banner -->
+        <img src="Site_Files/headshot blurred.jpg" id="cover-image">
+    </div>
+
+
+    <!-- Main content begins here -->
+    <div class="main-content">
+
+        <!-- About Me section -->
+        <section id="about">
+
+            <!-- Interactive terminal thing? -->
+            <canvas id="about-terminal" class="js"></canvas>
+
+            <!-- Fallback for those 0.2% of users who have JavaScript disabled -->
+            <div class="no-js">
+                <h1>About Me</h1>
+
+                <div class="left-column">
+                    <h2>Essentials</h2>
+                    <ul>
+                        <li>Age: 20</li>
+                        <li>Location: Charlotte, MI, USA</li>
+                        <li>Expertise: Software Engineering, Game Development</li>
+                        <li>Education:
+                            <ul>
+                                <li>Vassar College | Sophomore, Computer Science Major (GPA: 3.91)</li>
+                                <li>Lansing Community College | Associate Degree, Computer Science (GPA: 3.78)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="right-column">
+                    <h2>Less Essentials</h2>
+                    <ul>
+                        <li>Likes: marshmallows (for eating), guinea pigs (not for eating)</li>
+                        <li>Hobbies: ocarina, harmonica, e-sports (Super Smash Bros.)</li>
+                        <li>Currently learning:  Japanese, Chinese</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio of projects -->
+        <section id="projects">
+            <h1>Projects</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna 
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis 
+                aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                non proident, sunt in culpa qui officia deserunt mollit anim id 
+                est laborum.
+            </p>
+        </section>
+
+        <!-- Resume from my Google Drive -->
+        <section id="resume">
+            <h1>Resume</h1>
+            <p>
+                <iframe frameborder="0" scrolling="no"
+                    src="https://drive.google.com/file/d/1htR4nr4oxCVCmspR5BA6zkn4cuJyZVc8/preview">
+                </iframe>
+            </p>
+        </section>
+
+        <!-- Contact info as well as a contact form? -->
+        <section id="contact">
+            <h1>Contact</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna 
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis 
+                aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                non proident, sunt in culpa qui officia deserunt mollit anim id 
+                est laborum.
+            </p>
+        </section>
+    </div>
+</body>
+
+</html>
