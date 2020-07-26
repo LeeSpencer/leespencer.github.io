@@ -160,22 +160,65 @@
     desktopNavBar.addEventListener("click", samePageLinkHandler, false);
     viewResume.addEventListener("click", samePageLinkHandler, false);
 
+    const FONT_COLOR = "#00FF00";
+    const BG_COLOR = "#000000";
+    const FONT_SIZE = 24;
+    const FONT_FAMILY = "Courier New";
 
-    function Line(str, canvas, x, y, fontSize) {
+    function Line(str, canvas, x, y) {
         this.string = str;
         this.canvas = canvas;
         this.context = canvas.getContext("2d");
         this.x = x;
         this.y = y;
-        this.fontSize = fontSize;
+
+        this.highlighted = false;
     }
 
     Line.prototype.draw = function() {
+        this.context.fillStyle = FONT_COLOR;
+
+        if (this.highlighted) {
+            this.context.fillRect(0, this.y-FONT_SIZE, this.canvas.width, FONT_SIZE*1.2);
+            this.context.fillStyle = BG_COLOR;
+        }
+        
+        this.context.font = FONT_SIZE + "px " + FONT_FAMILY;
         this.context.fillText(this.string, this.x, this.y);
     };
 
-    Line.prototype.highlight = function() {
-        this.context.fillRect(this.x, this.y, this.canvas.width, this.fontSize);
+    Line.prototype.append = function (str) {
+        this.string += str;
+    };
+
+    Line.prototype.setSelectable = function(callback) {
+        let thisLine = this;
+        // create div with hover event?
+        //let lineDiv = document.createElement("div");
+
+        this.canvas.addEventListener("mousemove", function(event) {
+            let mouseCoords = resizer.getRelativeEventCoords(event);
+
+            thisLine.highlighted = (thisLine.y-FONT_SIZE <= mouseCoords.y && mouseCoords.y <= (thisLine.y+FONT_SIZE*0.2));
+            
+        }, false);
+        this.canvas.addEventListener("click", function(event) {
+            let mouseCoords = resizer.getRelativeEventCoords(event);
+
+            if (thisLine.y-FONT_SIZE <= mouseCoords.y && mouseCoords.y <= (thisLine.y+FONT_SIZE*0.2)) {
+                callback();
+            }
+            
+        }, false);
+        /*this.canvas.addEventListener("mouseleave", function() {
+            thisLine.highlighted = false;
+        }, false);*/
+
+        //lineDiv.className = "terminal-line";
+        //lineDiv.style.height = FONT_SIZE + "px";
+        //lineDiv.style.top = this.y + "px";
+
+        //this.canvas.parentElement.appendChild(lineDiv);
     };
     
     // "About Me" Terminal
@@ -185,12 +228,6 @@
     // Initialize the resizer
     resizer.init();
 
-    // Grab the canvas and context
-    let aboutCanvas = resizer.getCanvas();
-    let aboutContext = aboutCanvas.getContext("2d");
-
-    const FONT_COLOR = "#00FF00";
-    const FONT = "40px Courier New";
 
     // Begin the terminal when it scrolls into view
     let observer = new IntersectionObserver(function(entries) {
@@ -200,71 +237,162 @@
             // isIntersecting is true when element and viewport are overlapping
             // isIntersecting is false when element and viewport don't overlap
             if(entries[i].isIntersecting === true) {
-                aboutContext.font = FONT;
-                aboutContext.fillStyle = FONT_COLOR;
-                typeLine("About Spencer [ver. 1.0.0]\n\n"+
-                         "> Click Here", aboutContext, 50, 50);
+                terminal.start();
                 observer.unobserve(entries[i].target);
             }
         }
     }, { threshold: [0] });
-    
-    observer.observe(aboutCanvas);
 
-    let typeLine = (function() {
-        // The number of frames it takes to type one character
-        const TYPE_TIME = 4;
-        
-        // Overall font size
-        const FONT_SIZE = 40;
+    let terminal = (function() {
 
-        // Spacing (px) between each character
-        const SPACE = 0;
-
-        // Counter of frames passed; rolls over after the type time
-        let frame = 1;
-
-        let isTyping = false;
-
-        let theCharacters, theContext, theX, theY, originX, originY;
-        let i;
-        
-        return function (str, context, x, y) {
-            if (!isTyping) {
-                isTyping = true;
-
-                theCharacters = str.split("");
-                theContext = context;
-                theX = x;
-                originX = x;
-                theY = y;
-                originY = y;
-
-                i = 0;
-            }
-
+        const PAGE_1 = ("About Spencer [ver. 1.0.0]\n" +
+                        "> Click Here")
+                       .split("");
+        const PAGE_2 = ("What would you like to know?\n" +
+                        "> Basic Information\n" +
+                        "> Fun Facts")
+                        .split("");
+        const BASIC_INFO = ("Age: 20\n"+
+                            "Location: Charlotte, MI, USA\n"+
+                            "Expertise: Software Engineering, Game Development\n"+
+                            "Education: Vassar College | Junior, Computer Science Major (GPA: 3.92)\n"+
+                            "Lansing Community College | Associate Degree, Computer Science (GPA: 3.78)\n")
+                            .split("");
             
-            if (frame === TYPE_TIME) {
+        const FUN_FACTS = ("Likes: marshmallows (for eating), guinea pigs (not for eating)\n"+
+                           "Hobbies: ocarina, harmonica, e-sports (Super Smash Bros.)\n"+
+                           "Currently learning: Japanese, Chinese")
+                           .split("");
+        const _pages = [PAGE_1];
 
-                if (theCharacters[i] === "\n") {
-                    theY += FONT_SIZE;
-                    theX = originX;
-                }
-                else {
-                    theContext.fillText(theCharacters[i], theX, theY);
-                    theX += Math.round((FONT_SIZE * (5/8)) + SPACE);
-                }
-                
-                if (++i >= theCharacters.length) {
-                    isTyping = false;
-                    return;
-                }
+        let _currentPage, _pageIndex, _currentLine;
+
+        // Starting point for letters
+        const ORIGIN_X = 24;
+        const ORIGIN_Y = 12;
+
+        const LINE_SPACING = 2;
+        
+        // Grab the canvas and context
+        let _canvas = resizer.getCanvas();
+        let _context = _canvas.getContext("2d");
+
+        let _lines, _lineNumber, _lineY;
+
+        function _start() {
+            _lines = [];
+            _lineNumber = 1;
+
+            _currentPage = PAGE_1;
+            _pageIndex = 0;
+            _currentLine = _addLine("");
+
+            requestAnimFrame(_update);
+        }
+
+        function _reset() {
+            _lines.length = 0;
+            _lineNumber = 1;
+            _currentLine = _addLine("");
+        }
+
+        function _addLine(str) {
+            let newLine;
+
+            _lineY = ORIGIN_Y + (FONT_SIZE * LINE_SPACING * _lineNumber);
+            newLine = new Line(str, _canvas, ORIGIN_X, _lineY);
+            _lines.push(newLine);
+            _lineNumber++;
+
+            return newLine;
+        }
+
+        function _drawLines() {
+            for (let i = _lines.length-1; i >= 0; i--) {
+                _lines[i].draw();
             }
+        }
 
-            frame = (frame%TYPE_TIME) + 1;
+        function _continueDrawing() {
+            _context.fillStyle = BG_COLOR;
+            _context.fillRect(0, 0, _canvas.width, _canvas.height);
+            _drawLines();
 
-            requestAnimFrame(typeLine);
+            requestAnimFrame(_continueDrawing);
+        }
+
+        let _update = (function() {
+            
+            // The number of frames it takes to type one character
+            const TYPE_TIME = 4;
+    
+            // Counter of frames passed; rolls over after the type time
+            let frame = 0;
+
+            let i = 0;
+                      
+
+            return function() {
+                _context.fillStyle = BG_COLOR;
+                _context.fillRect(0, 0, _canvas.width, _canvas.height);
+                _drawLines();
+
+                frame = (frame+1) % TYPE_TIME;
+
+                if (frame === 0 && i < _currentPage.length) {
+
+                    switch(_currentPage[i]) {
+                        case "\n":
+                            _currentLine = _addLine("");
+                            break;
+
+                        case ">":
+                           if (_pages[_pageIndex] === PAGE_1) {
+                                _currentLine.setSelectable(function(){
+                                    _pages.push(PAGE_2);
+                                });
+                            }
+                            else if (_pages[_pageIndex] === PAGE_2 && !_pages.includes(BASIC_INFO)) {
+                                _currentLine.setSelectable(function(){
+                                    _pages.push(BASIC_INFO);
+                                });
+                            }
+                            else if (_pages[_pageIndex] === PAGE_2) {
+                                _currentLine.setSelectable(function(){
+                                    _pages.push(FUN_FACTS);
+                                });
+                            }
+                        default:
+                            _currentLine.append(_currentPage[i]);
+                    }
+
+
+                    i++;
+                }
+                else if (_pageIndex < _pages.length-1) {
+                    _pageIndex++;
+                    _currentPage = _pages[_pageIndex];
+
+                    _reset();
+                    i = 0;
+                    frame = 0;
+                }
+
+                requestAnimFrame(_update);
+            }
+        })();
+
+        return {
+            start: _start,
+            reset: _reset,
+            canvas: _canvas,
+
+            addLine: _addLine
         };
     })();
+
+    observer.observe(terminal.canvas);
+
+    
 
 })();

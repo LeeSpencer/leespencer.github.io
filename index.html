@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Spencer's pesonal resizing library -->
-    <script src="config.js" defer></script>
-    <script src="resizer.js" defer></script>
+    <script src="Resizer/config.js" defer></script>
+    <script src="Resizer/resizer.js" defer></script>
 
     <!-- Load the main JavaScript -->
     <script src="main.js" defer></script>
@@ -83,7 +83,9 @@
         <section id="about">
 
             <!-- Interactive terminal thing? -->
-            <canvas id="about-terminal" class="js"></canvas>
+            <div id="terminal-wrapper">
+                <canvas id="about-terminal" class="js"></canvas>
+            </div>
 
             <!-- Fallback for those 0.2% of users who have JavaScript disabled -->
             <div class="no-js">
@@ -97,7 +99,7 @@
                         <li>Expertise: Software Engineering, Game Development</li>
                         <li>Education:
                             <ul>
-                                <li>Vassar College | Sophomore, Computer Science Major (GPA: 3.91)</li>
+                                <li>Vassar College | Junior, Computer Science Major (GPA: 3.92)</li>
                                 <li>Lansing Community College | Associate Degree, Computer Science (GPA: 3.78)</li>
                             </ul>
                         </li>

@@ -139,6 +139,12 @@ section iframe {
     background-color: black;
 }
 
+.terminal-line {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
 .right-column {
     display: block;
     width: 45%;
