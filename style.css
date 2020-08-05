@@ -16,7 +16,8 @@ body {
     padding: 0;
     padding-bottom: 60px;
     background-color: white;
-    /*font-family: Arial, Verdana, Georgia;*/
+    /*background-image: repeating-linear-gradient(grey, white, grey 75%);*/
+    /*background-repeat: repeat;*/
     font-family: 'Gill Sans','Gill Sans MT','Calibri','Trebuchet MS',sans-serif;
 }
 
