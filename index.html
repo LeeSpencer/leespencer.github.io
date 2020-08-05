@@ -14,11 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Spencer's pesonal resizing library -->
-    <script src="Resizer/config.js" defer></script>
-    <script src="Resizer/resizer.js" defer></script>
+    <script src="js/Resizer/config.js" defer></script>
+    <script src="js/Resizer/resizer.js" defer></script>
 
     <!-- Load the main JavaScript -->
-    <script src="main.js" defer></script>
+    <script src="js/imports.js" defer></script>
+    <script src="js/terminal.js" defer></script>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -72,7 +74,7 @@
         </div>
 
         <!-- The profile photo displayed at the left of the banner -->
-        <img src="Site_Files/headshot blurred.jpg" id="cover-image">
+        <img src="Site_Files/headshot blurred.jpg" id="cover-image" alt="Spencer's profile picture">
     </div>
 
 
@@ -82,7 +84,7 @@
         <!-- About Me section -->
         <section id="about">
 
-            <!-- Interactive terminal thing? -->
+            <!-- Interactive terminal -->
             <div id="terminal-wrapper">
                 <canvas id="about-terminal" class="js"></canvas>
             </div>
@@ -120,40 +122,85 @@
         <!-- Portfolio of projects -->
         <section id="projects">
             <h1>Projects</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna 
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis 
-                aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                non proident, sunt in culpa qui officia deserunt mollit anim id 
-                est laborum.
-            </p>
+
+            <!-- Tab for each project -->
+            <div class="tabs">
+                <button id="brandy-tab" class="inactive tab"></button>
+                <button id="gates-of-fate-tab" class="inactive tab"></button>
+                <button id="grave-mistakes-tab" class="inactive tab"></button>
+            </div>
+
+            <!-- Content for each tab -->
+
+            <!-- Brandy -->
+            <div id="brandy-content" class="tab-content">
+                <div class="image-area">
+                    <img src="Site_Files/brandy-gameplay.jpg" alt="Brandy gameplay image">
+                </div>
+
+                <div class="description-area">
+                    <h3>Brandy (Ch.&nbsp;1)</h3>
+                    <p>A witty, edge-of-your-seat edgy, action-packed, romantic comedy turn-based RPG slice of life that's fun for the whole nuclear family!</p>
+                    <br/>
+                    <a href="/Site_Files/brandy.zip" download><p>Download for Windows</p></a>
+                </div>
+            </div>
+
+            <!-- Gates of Fate -->
+            <div id="gates-of-fate-content" class="tab-content">
+                <div class="image-area">
+                    <img src="Site_Files/gates-of-fate-gameplay.png" alt="Gates of Fate gameplay image">
+                </div>
+
+                <div class="description-area">
+                    <h3>Gates of Fate</h3>
+                    <p>A witty, edge-of-your-seat edgy, action-packed, romantic comedy turn-based RPG slice of life that's fun for the whole nuclear family!</p>
+                    <br/>
+                    <a href="https://www.cs.vassar.edu/~slee/203-Final/"><p>Play Gates of Fate</p></a>
+                </div>
+            </div>
+
+            <!-- Grave Mistakes -->
+            <div id="grave-mistakes-content" class="tab-content">
+                <div class="image-area">
+                    <img src="Site_Files/grave-mistakes-gameplay.png" alt="Grave Mistakes gameplay image">
+                </div>
+
+                <div class="description-area">
+                    <h3>Grave Mistakes</h3>
+                    <p>A witty, edge-of-your-seat edgy, action-packed, romantic comedy turn-based RPG slice of life that's fun for the whole nuclear family!</p>
+                    <br/>
+                    <a href="https://thebraingamelab.org/games/grave-mistakes/"><p>Play Grave Mistakes</p></a>
+                </div>
+            </div>
         </section>
 
         <!-- Resume from my Google Drive -->
         <section id="resume">
             <h1>Resume</h1>
-            <p>
-                <iframe frameborder="0" scrolling="no"
-                    src="https://drive.google.com/file/d/1htR4nr4oxCVCmspR5BA6zkn4cuJyZVc8/preview">
-                </iframe>
-            </p>
+            <iframe frameborder="0" scrolling="no"
+                src="https://drive.google.com/file/d/1htR4nr4oxCVCmspR5BA6zkn4cuJyZVc8/preview">
+            </iframe>
         </section>
 
-        <!-- Contact info as well as a contact form? -->
+        <!-- Contact info -->
         <section id="contact">
             <h1>Contact</h1>
+            <h2><u>Email (preferred contact method)</u></h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna 
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis 
-                aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                non proident, sunt in culpa qui officia deserunt mollit anim id 
-                est laborum.
+                <br/>
+                <a href="mailto:slee@vassar.edu" target="_blank">slee@vassar.edu</a>
+                <br/>
+                <br/>
+                <br/>
+            </p>
+
+            <h2><u>Phone Numbers</u></h2>
+            <p>
+                <br/>
+                Home: <a href="tel:+1-517-541-2730">+1 (517) 541-2730</a>
+                <br/>
+                Cell: <a href="tel:+1-269-223-2582">+1 (269) 223-2582</a>
             </p>
         </section>
     </div>

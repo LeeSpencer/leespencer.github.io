@@ -1,3 +1,12 @@
+/****************************************/
+/*       General element styling        */
+/****************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -5,6 +14,7 @@ html {
 body {
     margin: 0;
     padding: 0;
+    padding-bottom: 60px;
     background-color: white;
     /*font-family: Arial, Verdana, Georgia;*/
     font-family: 'Gill Sans','Gill Sans MT','Calibri','Trebuchet MS',sans-serif;
@@ -13,9 +23,10 @@ body {
 h1 {
     font-size: 72px;
     margin: 0;
+    margin-bottom: 10px;
 }
 
-p, li {
+p, p a, li {
     font-size: 22px;
     line-height: 33px;
 }
@@ -37,25 +48,21 @@ section iframe {
     height: 600px;
 }
 
-.header {
-    width: 100%;
-    position: relative;
-    padding: 40px 0 0;
-    display: initial;
-    background-color: white;
+.main-content {
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-#name {
-    margin-top: 40px;
-    text-align: center;
-    width: 100%;
-}
+/****************************************/
+/*            Navigation                */
+/****************************************/
 
 .navigation {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 4;
     background-color: white;
 }
 
@@ -94,11 +101,27 @@ section iframe {
     display: none;
 }
 
-.main-content {
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
+/****************************************/
+/*             Header                   */
+/****************************************/
+
+.header {
+    width: 100%;
+    position: relative;
+    padding: 40px 0 0;
+    display: initial;
+    background-color: white;
 }
+
+#name {
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+/****************************************/
+/*    Photo banner across top of page   */
+/****************************************/
 
 #cover-div {
     background-color: black;
@@ -135,6 +158,14 @@ section iframe {
     height: 100%;
 }
 
+/****************************************/
+/*            About Section             */
+/****************************************/
+
+#about {
+    height: 375px;
+}
+
 #about-terminal {
     background-color: black;
 }
@@ -156,6 +187,145 @@ section iframe {
     width: 50%;
     float: left;
 }
+
+/****************************************/
+/*          Projects section            */
+/****************************************/
+
+/* Tabs */
+/********/
+
+
+/* Style the tab */
+.tabs {
+    overflow: hidden;
+    text-align: justify;
+    height: 100px;
+}
+
+.tabs:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+  
+/* Style the buttons inside the tab */
+.tab {
+    position: relative;
+    display: inline-block;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 30%;
+    height: 100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Inactive tabs */
+.inactive:hover {
+    border: 5px solid grey;
+}
+
+.inactive {
+    z-index: 0;
+}
+
+/* Active tab */
+.active {
+    border: 5px solid grey;
+    border-bottom: none;
+    z-index: 2;
+}
+
+/* Tab content */
+/***************/
+
+/* Style the tab content */
+.tab-content {
+    display: none;
+    position: relative;
+    border: 5px solid grey;
+    margin-top: -5px;
+    z-index: 1;
+    height: 500px;
+    overflow: hidden;
+}
+
+.image-area, .description-area {
+    width: 44%;
+    height: 100%;
+    float: left;
+    font-size: 16px;
+    line-height: 16px;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.description-area h3 {
+    font-size: 32px;
+    line-height: 32px;
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 10%;
+    margin-top: 20%;
+}
+
+.tab-content img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    border: 5px solid black;
+}
+
+/* Specific tabs */
+/*****************/
+
+#brandy-tab {
+    background-image: url("Site_Files/brandy.png");
+    background-color: black;
+}
+
+#gates-of-fate-tab {
+    background-image: url("Site_Files/gates-of-fate-icon.png");
+    background-color: skyblue;
+}
+
+#grave-mistakes-tab {
+    background-image: url("Site_Files/grave-mistakes-icon.png");
+    background-color: rgb(2, 211, 124);
+}
+
+#brandy-content {
+    background-color: black;
+    color: white;
+}
+
+#brandy-content img {
+    border-color: white;
+}
+
+#brandy-content a {
+    color: lightblue;
+}
+
+#gates-of-fate-content {
+    background-color: skyblue;
+    color: black;
+}
+
+#grave-mistakes-content {
+    background-color: rgb(2, 211, 124);
+}
+
+/****************************************/
+/*            Accessibility             */
+/****************************************/
 
 .js {
     display: none;
@@ -196,5 +366,13 @@ the mobile nav (.icon) */
     h1 {
         font-size: 64px;
         margin: 0;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .tab-content h3 {
+        font-size: 26px;
     }
 }
