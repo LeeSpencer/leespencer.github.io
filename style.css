@@ -5,6 +5,9 @@
 * {
     margin: 0;
     padding: 0;
+
+    font-size: 22px;
+    line-height: 33px;
 }
 
 html {
@@ -24,12 +27,7 @@ body {
 h1 {
     font-size: 72px;
     margin: 0;
-    margin-bottom: 10px;
-}
-
-p, p a, li {
-    font-size: 22px;
-    line-height: 33px;
+    margin-bottom: 40px;
 }
 
 section {
@@ -274,7 +272,7 @@ section iframe {
     margin-top: 20%;
 }
 
-.tab-content img {
+.image-area img {
     position: relative;
     top: 50%;
     left: 50%;
@@ -364,16 +362,111 @@ the mobile nav (.icon) */
         padding-right: 20%;
     }
 
-    h1 {
+    section h1 {
         font-size: 64px;
-        margin: 0;
     }
 
-    p {
+    .tab-content * {
         font-size: 18px;
+        line-height: 29px;
+    }
+
+    .tab-content {
+        height: 350px;
     }
 
     .tab-content h3 {
         font-size: 26px;
     }
+}
+
+/* Smaller text for smaller screens */
+/************************************/
+
+@media screen and (max-width: 640px) {
+    section h1 {
+        font-size: 40px;
+    }
+
+    .tab-content * {
+        font-size: 14px;
+    }
+
+    .tab-content h3 {
+        font-size: 22px;
+    }
+
+    section iframe {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    section h1 {
+        font-size: 32px;
+    }
+    
+    section * {
+        font-size: 18px;
+    }
+
+    section iframe {
+        height: 350px;
+    }
+
+    .tab-content * {
+        font-size: 12px;
+    }
+
+    .tab-content {
+        height: 300px;
+    }
+
+    .tab-content h3 {
+        font-size: 18px;
+    }
+
+    #cover-text-wrapper {
+        padding-right: 10%;
+        padding-left: 40%;
+    }
+
+    #about {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    section iframe {
+        height: 250px;
+    }
+
+    .tab-content {
+        overflow-y: scroll;
+    }
+
+    .image-area, .description-area {
+        float: none;
+        padding: 0;
+    }
+
+    .image-area {
+        width: 90%;
+        height: 30%;
+    }
+
+    .image-area img {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: 100%;
+    }
+
+    .description-area {
+        width: 100%;
+        height: 70%;
+    }
+
 }

@@ -34,7 +34,7 @@
     const VASSAR =  ("Vassar College\n"+
                         "Junior\n"+
                         "Computer Science Major\n"+
-                        "GPA: 3.92\n"+
+                        "GPA: 3.93\n"+
                         "\n"+
                         "> Go Back")
                         .split("");
@@ -128,13 +128,17 @@
 
         // Highlight line on hover
         this.highlightHandler = (function(event) {
+            event.preventDefault();
+            
             let mouseCoords = resizer.getRelativeEventCoords(event);
             this.highlighted = (this.y-FONT_SIZE <= mouseCoords.y && mouseCoords.y <= (this.y+FONT_SIZE*0.2));
         }).bind(this);
         
 
         // Execute callback on click
-        this.clickHandler = (function () {
+        this.clickHandler = (function (event) {
+            event.preventDefault();
+
             if (this.highlighted) {
                 callback();
             }
