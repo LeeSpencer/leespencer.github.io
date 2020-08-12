@@ -106,7 +106,6 @@ section iframe {
 
 .header {
     width: 100%;
-    position: -webkit-sticky;
     padding: 40px 0 0;
     display: initial;
     background-color: white;
