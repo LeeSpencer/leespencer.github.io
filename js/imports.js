@@ -70,7 +70,7 @@
     function getEventTarget(e) {
         e = e || window.event;
         return e.target || e.srcElement;
-      }
+    }
 
     function cumulativeOffset(element) {
         let top = 0, left = 0;
@@ -84,7 +84,7 @@
             top: top,
             left: left
         };
-    };
+    }
 
     return {
         easeInOutQuad: easeInOutQuad,
