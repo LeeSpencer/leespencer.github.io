@@ -13,9 +13,10 @@
         noJSElements: document.querySelectorAll(".no-js"),
         jsElements: document.querySelectorAll(".js"),
 
-        brandyTab: document.getElementById("brandy-tab"),
-        gatesOfFateTab: document.getElementById("gates-of-fate-tab"),
-        graveMistakesTab: document.getElementById("grave-mistakes-tab")
+        projectTabs: (function(){
+            let tabButtons = document.querySelectorAll(".tabs button");
+            return [...tabButtons];
+        })(),
     };
 
     let isNavVisible = false;
@@ -95,17 +96,19 @@
     HTML.desktopNavBar.addEventListener("click", samePageLinkHandler, false);
     HTML.viewResume.addEventListener("click", samePageLinkHandler, false);
 
-    HTML.brandyTab.addEventListener("click", function(event) {
-        openProjectTab(event, "brandy-content");
-    }, false);
+    // Add tab-switching functionality to each project tab
+    for (let i = HTML.projectTabs.length-1; i >= 0; i--) {
 
-    HTML.gatesOfFateTab.addEventListener("click", function(event) {
-        openProjectTab(event, "gates-of-fate-content");
-    }, false);
+        HTML.projectTabs[i].addEventListener("click", function(event) {
+            let contentId, tabId;
+            // Get the id of the tab's content element
+            tabId = HTML.projectTabs[i].id.toLowerCase();
+            contentId = (tabId.substr(0, tabId.indexOf("-tab")) + "-content").toLowerCase();
 
-    HTML.graveMistakesTab.addEventListener("click", function(event) {
-        openProjectTab(event, "grave-mistakes-content");
-    }, false);
+            // Switch to that tab's content
+            openProjectTab(event, contentId);
+        }, false);
+    }
 
 
 
@@ -124,8 +127,8 @@
         HTML.jsElements[i].style.display = "block";
     }
 
-    // Show brandy tab by default
-    HTML.brandyTab.click();
+    // Show first tab by default
+    HTML.projectTabs[0].click();
 
     // Initialize the terminal
     terminal.init();

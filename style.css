@@ -214,7 +214,7 @@ section iframe {
     border: none;
     outline: none;
     cursor: pointer;
-    width: 30%;
+    width: 25%;
     height: 100px;
     background-size: contain;
     background-position: center;
@@ -299,6 +299,14 @@ section iframe {
     background-color: rgb(2, 211, 124);
 }
 
+#pcalculator-tab {
+    background-image: url("Site_Files/calculator.png");
+    background-color: white;
+}
+
+/* Specific tab content */
+/************************/
+
 #brandy-content {
     background-color: black;
     color: white;
@@ -319,6 +327,10 @@ section iframe {
 
 #grave-mistakes-content {
     background-color: rgb(2, 211, 124);
+}
+
+#pcalculator-content {
+    background-color: white;
 }
 
 /****************************************/
