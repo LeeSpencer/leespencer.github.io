@@ -32,9 +32,9 @@
                         "> Go Back")
                         .split("");
     const VASSAR =  ("Vassar College\n"+
-                        "Junior\n"+
+                        "Senior\n"+
                         "Computer Science Major\n"+
-                        "GPA: 3.93\n"+
+                        "GPA: 3.94\n"+
                         "\n"+
                         "> Go Back")
                         .split("");
