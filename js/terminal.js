@@ -1,4 +1,4 @@
-;let terminal = (function() {
+;const terminal = (function() {
     "use strict";
 
     ////////////////////////
@@ -9,62 +9,10 @@
     const BG_COLOR = "#000000";
     const FONT_SIZE = 46;
     const FONT_FAMILY = "Courier New";
+    
+    const START_PAGE = pages.intro;
 
-    const PAGE_1 = ("About Spencer [ver. 1.2.0]\n" +
-                        "\n"+
-                        "> Click Here")
-                       .split("");
-    const PAGE_2 = ("What would you like to know?\n" +
-                    "\n"+
-                    "> Basic Information\n" +
-                    "> Fun Facts")
-                    .split("");
-
-    const BASIC_INFO = ("Age: 20\n"+
-                        "Location: Charlotte, MI, USA\n"+
-                        "Expertise: Web, game development\n"+
-                        "\n"+
-                        "> Education\n"+
-                        "> Go Back\n")
-                        .split("");
-    const EDUCATION = ("> Vassar College\n"+
-                        "> Lansing Community College\n"+
-                        "> Go Back")
-                        .split("");
-    const VASSAR =  ("Vassar College\n"+
-                        "Senior\n"+
-                        "Computer Science Major\n"+
-                        "GPA: 3.94\n"+
-                        "\n"+
-                        "> Go Back")
-                        .split("");
-    const LCC = ("Lansing Community College\n"+
-                    "Associate Degree: Computer Science\n"+
-                    "GPA: 3.78\n"+
-                    "\n"+
-                    "> Go Back")
-        
-    const FUN_FACTS = ("Likes:\n"+
-                        "* marshmallows (for eating)\n"+
-                        "* guinea pigs (not for eating)\n"+
-                        "Currently learning:\n"+
-                        "Japanese, Chinese\n"+
-                        "\n"+
-                        "> Continue\n"+
-                        "> Go Back")
-                        .split("");
-    const FUN_FACTS_CONT = ("Hobbies:\n"+
-                            "* ocarina\n"+
-                            "* harmonica\n"+
-                            "* e-sports (Super Smash Bros.)\n"+
-                            "\n"+
-                            "> Go Back")
-                            .split("");
-
-                            
-    const _pages = [PAGE_1];
-
-    let _currentPage, _pageIndex, _currentLine;
+    let _currentPage, _pageChars, _currentLine;
 
     // Starting point for letters
     const ORIGIN_X = 50;
@@ -150,27 +98,36 @@
     };    
 
     
-
+    ////////////////////////
+    // Helpful functions
+    ////////////////////////
+    
+    // Initialize relevant terminal variables
     function _start() {
 
         _lines = [];
         _lineNumber = 1;
 
-        _currentPage = PAGE_1;
-        _pageIndex = 0;
-        _currentLine = _addLine("");
+        _currentPage = START_PAGE;
+        _pageChars = START_PAGE.text.split("");
+        _currentLine = _newLine("");
 
+        // Skips to the end of the typing animation on click
         _skip = false;
-
         _canvas.addEventListener("click", function() {
             _skip = true;
         }, false);
 
+        // Begin rendering the terminal
         imports.requestAnimFrame(_update);
     }
 
+    // Resets terminal state for a new page on the terminal
     function _reset() {
-        for (let i = _lines.length-1; i >= 0; i--) {
+        let i = _lines.length - 1;
+
+        // For clickable options, remove their event handlers
+        for (i; i >= 0; i--) {
             if (_lines[i].highlightHandler) {
                 _canvas.removeEventListener("mousemove", _lines[i].highlightHandler);
                 _canvas.removeEventListener("click", _lines[i].clickHandler);
@@ -179,10 +136,11 @@
 
         _lines.length = 0;
         _lineNumber = 1;
-        _currentLine = _addLine("");
+        _currentLine = _newLine("");
     }
 
-    function _addLine(str) {
+    // Appends a new line of text to the terminal screen
+    function _newLine(str) {
         let newLine;
 
         _lineY = ORIGIN_Y + (FONT_SIZE * LINE_SPACING * _lineNumber);
@@ -193,190 +151,89 @@
         return newLine;
     }
 
+    // Draws each line on the terminal canvas
     function _drawLines() {
-        for (let i = _lines.length-1; i >= 0; i--) {
+        let i = _lines.length - 1
+        for (i; i >= 0; i--) {
             _lines[i].draw();
         }
     }
 
+    // Goes to the next page
+    function _nextPage(page) {
+        _currentPage = pages[page];
+        _pageChars = _currentPage.text.split("");
+        _reset();
+    }
+
+    // Drives the terminal rendering
     let _update = (function() {
+        let char = 0;
+
         // Counter of frames passed; rolls over after the type time
         let frame = 0;
 
-        let i = 0;
-
-        let lineCount = 1;
-                    
-
         return function() {
+            let i;
+
             _context.fillStyle = BG_COLOR;
             _context.fillRect(0, 0, _canvas.width, _canvas.height);
             _drawLines();
 
             frame = (frame+1) % TYPE_TIME;
 
+            // If skipping the typing animation, draw all the text at once
             if (_skip) {
-                // function for finite state machine here
-                for (i; i < _currentPage.length; i++) {
-                    switch(_currentPage[i]) {
-                        case "\n":
-                            _currentLine = _addLine("");
-                            lineCount++;
-                            break;
 
-                        case ">":
-                            let nextPage;
+                // Draw each character
+                for (char; char < _pageChars.length; char++) {
+                    if (_pageChars[char] === "\n") {
+                        _currentLine = _newLine("");
+                    }
+                    else {
+                        _currentLine.append(_pageChars[char]);
+                    }
 
-                            switch(_pages[_pageIndex]) {
-                                case PAGE_1:
-                                    nextPage = PAGE_2;
-                                    break;
-
-                                case PAGE_2:
-                                    if (lineCount === 3) {
-                                        nextPage = BASIC_INFO;
-                                    }
-                                    else if (lineCount === 4) {
-                                        nextPage = FUN_FACTS;
-                                    }
-                                    break;
-
-                                case BASIC_INFO:
-                                    if (lineCount === 5) {
-                                        nextPage = EDUCATION;
-                                    }
-                                    else if (lineCount === 6) {
-                                        nextPage = PAGE_2;
-                                    }
-                                    break;
-                                
-                                case EDUCATION:
-                                    if (lineCount === 1) {
-                                        nextPage = VASSAR;
-                                    }
-                                    else if (lineCount === 2) {
-                                        nextPage = LCC;
-                                    }
-                                    else if (lineCount === 3) {
-                                        nextPage = BASIC_INFO;
-                                    }
-                                    break;
-                                
-                                case VASSAR:
-                                case LCC:
-                                    nextPage = EDUCATION;
-                                    break;
-
-                                case FUN_FACTS:
-                                    if (lineCount === 7) {
-                                        nextPage = FUN_FACTS_CONT;
-                                    }
-                                    else if (lineCount === 8) {
-                                        nextPage = PAGE_2;
-                                    }
-                                    break;
-
-                                case FUN_FACTS_CONT:
-                                    nextPage = FUN_FACTS;
-                                    break;
-                            }
-
+                    // Draw the clickable options last
+                    if (char === _pageChars.length - 1) {
+                        for (i = 0; i < _currentPage.options.length; i++) {
+                            _currentLine = _newLine("> " + _currentPage.options[i]);
                             _currentLine.setSelectable(function(){
-                                _pages.push(nextPage);
+                                char = 0;
+                                frame = 0;
                                 _skip = false;
+                                _nextPage(_currentPage.nextPages[i]);
                             });
-
-                        default:
-                            _currentLine.append(_currentPage[i]);
+                        }
                     }
                 }
             }
 
-            else if (frame === 0 && i < _currentPage.length) {
+            // Animate the typing of each character individually
+            else if (frame === 0 && char < _pageChars.length) {
 
-                switch(_currentPage[i]) {
-                    case "\n":
-                        _currentLine = _addLine("");
-                        lineCount++;
-                        break;
-
-                    case ">":
-                        let nextPage;
-
-                        switch(_pages[_pageIndex]) {
-                            case PAGE_1:
-                                nextPage = PAGE_2;
-                                break;
-
-                            case PAGE_2:
-                                if (lineCount === 3) {
-                                    nextPage = BASIC_INFO;
-                                }
-                                else if (lineCount === 4) {
-                                    nextPage = FUN_FACTS;
-                                }
-                                break;
-
-                            case BASIC_INFO:
-                                if (lineCount === 5) {
-                                    nextPage = EDUCATION;
-                                }
-                                else if (lineCount === 6) {
-                                    nextPage = PAGE_2;
-                                }
-                                break;
-                            
-                            case EDUCATION:
-                                if (lineCount === 1) {
-                                    nextPage = VASSAR;
-                                }
-                                else if (lineCount === 2) {
-                                    nextPage = LCC;
-                                }
-                                else if (lineCount === 3) {
-                                    nextPage = BASIC_INFO;
-                                }
-                                break;
-                            
-                            case VASSAR:
-                            case LCC:
-                                nextPage = EDUCATION;
-                                break;
-
-                            case FUN_FACTS:
-                                if (lineCount === 7) {
-                                    nextPage = FUN_FACTS_CONT;
-                                }
-                                else if (lineCount === 8) {
-                                    nextPage = PAGE_2;
-                                }
-                                break;
-
-                            case FUN_FACTS_CONT:
-                                nextPage = FUN_FACTS;
-                                break;
-                        }
-
-                        _currentLine.setSelectable(function(){
-                            _pages.push(nextPage);
-                            _skip = false;
-                        });
-
-                    default:
-                        _currentLine.append(_currentPage[i]);
+                if (_pageChars[char] === "\n") {
+                    _currentLine = _newLine("");
+                }
+                else {
+                    _currentLine.append(_pageChars[char]);
                 }
 
-
-                i++;
+                char++;
             }
-            else if (_pageIndex < _pages.length-1) {
-                _pageIndex++;
-                _currentPage = _pages[_pageIndex];
 
-                _reset();
-                i = 0;
-                frame = 0;
-                lineCount = 1;
+            // Display clickable options after typing animation finishes
+            else if (char === _pageChars.length) {
+                _skip = true;
+                for (i = 0; i < _currentPage.options.length; i++) {
+                    _currentLine = _newLine("> " + _currentPage.options[i]);
+                    _currentLine.setSelectable(function(){
+                        char = 0;
+                        frame = 0;
+                        _skip = false;
+                        _nextPage(_currentPage.nextPages[i]);
+                    });
+                }
             }
 
             imports.requestAnimFrame(_update);
@@ -384,6 +241,7 @@
     })();
 
 
+    // Public-facing function: initialize the terminal
     function _init() {
         // Initialize resizer
         resizer.init();
