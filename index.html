@@ -2,235 +2,45 @@
 <html lang="en">
 
 <head>
+    <!-- Favicon stuff -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- End favicon stuff -->
+
     <meta charset="utf-8">
     <title>Spencer Lee</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/ico" href="Site_Files/favicon.ico">
     <meta name="author" content="Spencer Lee">
     <link href="style.css" type="text/css" rel="stylesheet">
 
-    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Spencer's pesonal resizing library -->
-    <script src="js/Resizer/config.js" defer></script>
-    <script src="js/Resizer/resizer.js" defer></script>
-
     <!-- Load the main JavaScript -->
     <script src="js/imports.js" defer></script>
-    <script src="js/terminal_pages.js" defer></script>
-    <script src="js/terminal.js" defer></script>
     <script src="js/main.js" defer></script>
 </head>
 
 <body>
-    <!-- Marker for the top of the page -->
-    <span id="top"></span>
-
-    <!-- Header -->
-    <section class="header">
-
-        <!-- Title -->
-        <div id="name">
-            <h1>Spencer Lee</h1>
-        </div>
-        
-        <!-- Navigation -->
-        <div id="topnav" class="navigation">
-
-            <!-- Hamburger icon for mobile only -->
-            <a id="hamburger-icon" href="javascript:void(0);" class="icon">
-                <i class="fa fa-bars"></i>
-            </a>
-
-            <!-- Desktop navigation -->
-            <ul>
-                <li><a data-targetElement="top">Home</a></li>
-                <li><a data-targetElement="about">About Me</a></li>
-                <li><a data-targetElement="projects">Projects</a></li>
-                <li><a data-targetElement="resume">Resume</a></li>
-                <li><a data-targetElement="contact">Contact</a></li>
-            </ul>
-
-            <!-- Mobile navigation -->
-            <div id="mobile-nav">
-                <a data-targetElement="top">Home</a>
-                <a data-targetElement="about">About Me</a>
-                <a data-targetElement="projects">Projects</a>
-                <a data-targetElement="resume">Resume</a>
-                <a data-targetElement="contact">Contact</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Banner across the page -->
-    <div id="cover-div">
-        <div id="cover-text-wrapper">
-            <p id="cover-text">
-                Hi! My name is Spencer Lee.
-                <br>
-                <a data-targetElement="resume" id="view-resume">View Resume</a>
-            </p>
-        </div>
-
-        <!-- The profile photo displayed at the left of the banner -->
-        <img src="Site_Files/headshot blurred.jpg" id="cover-image" alt="Spencer's profile picture">
-    </div>
-
-
-    <!-- Main content begins here -->
-    <div class="main-content">
-
-        <!-- About Me section -->
-        <section id="about">
-
-            <!-- Interactive terminal -->
-            <div id="terminal-wrapper">
-                <canvas id="about-terminal" class="js"></canvas>
-            </div>
-
-            <!-- Fallback for those 0.2% of users who have JavaScript disabled -->
-            <div class="no-js">
-                <h1>About Me</h1>
-
-                <div class="left-column">
-                    <h2>Essentials</h2>
-                    <ul>
-                        <li>Age: 20</li>
-                        <li>Location: Charlotte, MI, USA</li>
-                        <li>Expertise: Software Engineering, Game Development</li>
-                        <li>Education:
-                            <ul>
-                                <li>Vassar College | Junior, Computer Science Major (GPA: 3.92)</li>
-                                <li>Lansing Community College | Associate Degree, Computer Science (GPA: 3.78)</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="right-column">
-                    <h2>Less Essentials</h2>
-                    <ul>
-                        <li>Likes: marshmallows (for eating), guinea pigs (not for eating)</li>
-                        <li>Hobbies: ocarina, harmonica, e-sports (Super Smash Bros.)</li>
-                        <li>Currently learning:  Japanese, Chinese</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio of projects -->
-        <section id="projects" class="js">
-            <h1>Projects</h1>
-
-            <!-- Tab for each project -->
-            <div class="tabs">
-                <button id="brandy-tab" class="inactive tab"></button><!-- Comments included here to prevent whitespace insertion between inline elements
-             --><button id="gates-of-fate-tab" class="inactive tab"></button><!--
-             --><button id="grave-mistakes-tab" class="inactive tab"></button><!--
-             --><button id="pcalculator-tab" class="inactive tab"></button>
-            </div>
-
-            <!-- Content for each tab -->
-
-            <!-- Brandy -->
-            <div id="brandy-content" class="tab-content">
-                <div class="image-area">
-                    <img src="Site_Files/brandy-gameplay.jpg" alt="Brandy gameplay image">
-                </div>
-
-                <div class="description-area">
-                    <h3>Brandy (Ch.&nbsp;1)</h3>
-                    <p>A witty, edge-of-your-seat edgy, action-packed, romantic comedy turn-based RPG slice of life that's fun for the whole nuclear family!</p>
-                    <br/>
-                    <a href="/Site_Files/brandy.zip" download><p>Download for Windows</p></a>
-                </div>
-            </div>
-
-            <!-- Gates of Fate -->
-            <div id="gates-of-fate-content" class="tab-content">
-                <div class="image-area">
-                    <img src="Site_Files/gates-of-fate-gameplay.png" alt="Gates of Fate gameplay image">
-                </div>
-
-                <div class="description-area">
-                    <h3>Gates of Fate</h3>
-                    <p>A witty, wholesome, action-packed, text-but-also-image-based adventure that's fun for the kids! It also improves their math skills!</p>
-                    <br/>
-                    <a href="https://www.cs.vassar.edu/~slee/gates-of-fate/index.html"><p>Play Gates of Fate</p></a>
-                </div>
-            </div>
-
-            <!-- Grave Mistakes -->
-            <div id="grave-mistakes-content" class="tab-content">
-                <div class="image-area">
-                    <img src="Site_Files/grave-mistakes-gameplay.png" alt="Grave Mistakes gameplay image">
-                </div>
-
-                <div class="description-area">
-                    <h3>Grave Mistakes</h3>
-                    <p>Improve your brain! Ghosts have gotten loose and you have to catch them. Memorize where the ghosts are hiding and save the day!</p>
-                    <br/>
-                    <a href="https://thebraingamelab.org/games/grave-mistakes/"><p>Play Grave Mistakes</p></a>
-                </div>
-            </div>
-
-            <!-- PCalculator -->
-            <div id="pcalculator-content" class="tab-content">
-                <div class="image-area">
-                    <img src="Site_Files/pcalculator.png" alt="PCalculator example image">
-                </div>
-
-                <div class="description-area">
-                    <h3>PCalculator</h3>
-                    <p>A calculator that evaluates polynomial expressions. Developed in Java as a project for my Algorithms & Data Structures class.</p>
-                    <br/>
-                    <p>NOTE: Please read the "READ ME.TXT" file that is included.</p>
-                    <br/>
-                    <a href="/Site_Files/pcalculator_project.zip" download><p>Download ZIP</p></a>
-                </div>
-            </div>
-        </section>
-
-        <section class="no-js">
-            <h1>Projects</h1>
-            <p>Oops! Normally my projects would show up here, but it seems the website scripts aren't working as expected. Would you kindly ensure that JavaScript is enabled on your browser?</p>
-        </section>
-
-        <!-- Resume from my Google Drive -->
-        <section id="resume">
-            <h1>Resume</h1>
-            <iframe frameborder="0" scrolling="no"
-                src="https://drive.google.com/file/d/1htR4nr4oxCVCmspR5BA6zkn4cuJyZVc8/preview">
-            </iframe>
-        </section>
-
-        <!-- Contact info -->
-        <section id="contact">
-            <h1>Contact</h1>
-            <h2><u>Email (preferred contact method)</u></h2>
-            <p>
-                <br/>
-                <a href="mailto:slee@vassar.edu" target="_blank">slee@vassar.edu</a>
-                <br/>
-                <br/>
-                <br/>
-            </p>
-
-            <h2><u>Phone Numbers</u></h2>
-            <p>
-                <br/>
-                Home: <a href="tel:+1-517-541-2730">+1 (517) 541-2730</a>
-                <br/>
-                Cell: <a href="tel:+1-269-223-2582">+1 (269) 223-2582</a>
-            </p>
-        </section>
-        
-        <section id="copyright">
-            © Copyright 2020 - Spencer Lee. All Rights Reserved.
-        </section>
-    </div>
+    <div class="container">
+		<div class="book">
+			<div class="front">
+				<div class="cover">
+					<img class="book-ring" src="/Site_Files/book-ring.png">
+                    <img class="book-corner-top" src="/Site_Files/book-corner-top.png">
+                    <img class="book-corner-bot" src="/Site_Files/book-corner-bottom.png">
+				</div>
+			</div>
+			<div class="left-side">
+				<h2>
+					<span class="gold-text">Click to open</span>
+				</h2>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
