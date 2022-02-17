@@ -42,6 +42,12 @@ the mobile nav (.icon) */
 * {
     margin: 0;
     padding: 0;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: flat;
+    -moz-transform-style: flat;
+    transform-style: flat;
 }
 
 html {
@@ -55,6 +61,70 @@ body {
     background-color: rgb(209, 209, 209);
 }
 
+.unselectable {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/****************************************/
+/*           Open book styling          */
+/****************************************/
+.container .open-book {
+    transform-origin: left center;
+    -moz-transform-origin: left center;
+    -webkit-transform-origin: left center;
+    box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+
+    -webkit-transition: -webkit-transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    -moz-transition: -moz-transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+}
+
+.cover-inside {
+    background-image: url("/Site_Files/book-inside.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+
+    -webkit-transition: -webkit-transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    -moz-transition: -moz-transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+
+    width: var(--book-width);
+    height: var(--book-height);
+}
+
+.book-backside {
+    visibility: hidden;
+    background-image: url("/Site_Files/book-backside.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    width: var(--book-width);
+    height: var(--book-height);
+    border-radius: 2px 4px 4px 2px;
+    -webkit-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+    -moz-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+    box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+    -webkit-transition: -webkit-transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    -moz-transition: -moz-transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    transform-origin: left;
+    -moz-transform-origin: left;
+    -webkit-transform-origin: left;
+    
+}
 
 /****************************************/
 /*           Book cover display         */
@@ -63,21 +133,22 @@ body {
 .container {
     z-index: 1;
     perspective: 3000px;
+    height: 100vh;
 }
   
-.container .book {
-    position: relative;
-    display: block;
+.book {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
     width: var(--book-width);
     height: var(--book-height);
-    margin: 5% auto;
     border-radius: 2px 4px 4px 2px;
-    background: linear-gradient(45deg,  #DAD5DC 0%, #f2ebf4 100%);
     -webkit-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
     -moz-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
     box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
-    font-weight: 400;
-    color: #2b2b2b;
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -86,10 +157,17 @@ body {
     transition: transform .5s;
 }
 
-.container .book:hover {
-    -webkit-transform: rotate3d(0,1,0,35deg);
-    -moz-transform: rotate3d(0,1,0,35deg);
-    transform: rotate3d(0,1,0,35deg);
+.container .closed-book {
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+}
+
+.container .closed-book:hover {
+    -webkit-transform: translate(-50%, -50%) rotate3d(0,1,0,35deg);
+    -moz-transform: translate(-50%, -50%) rotate3d(0,1,0,35deg);
+    transform: translate(-50%, -50%) rotate3d(0,1,0,35deg);
 }
 
 .container .book > div,
@@ -98,6 +176,11 @@ body {
     position: absolute;
 }
 
+.container .closed-book .front {
+    -webkit-transform: translate3d(0,0,20px);
+    -moz-transform: translate3d(0,0,20px);
+    transform: translate3d(0,0,20px);
+}
 
 .container .front {
     -webkit-transform-style: preserve-3d;
@@ -109,18 +192,10 @@ body {
     -webkit-transition: -webkit-transform .5s;
     -moz-transition: -moz-transform .5s;
     transition: transform .5s;
-    -webkit-transform: translate3d(0,0,20px);
-    -moz-transform: translate3d(0,0,20px);
-    transform: translate3d(0,0,20px);
     z-index: 10;
 }
 
-.container .front > div {
-    width: var(--book-width);
-    height: var(--book-height);
-}
-
-.container .left-side{
+.container .left-side {
     width: 40px;
     left: -20px;
     height: var(--book-height);
@@ -132,18 +207,10 @@ body {
     transform: rotate3d(0,1,0,-90deg);
 }
 
-.cover svg{
-    position: absolute;
-    top: 50%;
-    left: 45%;
-    margin-top: -100px;
-    margin-left: -110px;
-    width: 300px;
-}
-
 .book-ring, .book-corner-top, .book-corner-bot {
     position: absolute;
     filter: drop-shadow(0px 5px 0px #000);
+    pointer-events: none;
 }
 
 .book-ring {
@@ -160,11 +227,6 @@ body {
 .book-corner-bot {
     bottom: 2%;
     right: 2%;
-}
-
-.container .front > div {
-    border-radius: 0 3px 3px 0;
-    box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .container .front:after {
@@ -187,6 +249,15 @@ body {
     box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
 }
 
+.cover {
+    background-image: url("/Site_Files/leather-texture.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: var(--book-width);
+    height: var(--book-height);
+    box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
 
 .container h2 {
     width: calc(var(--book-height) - 30px);
@@ -204,12 +275,6 @@ body {
     transform: rotate(90deg) translateY(-40px);
 }
 
-.cover {
-    background-image: url("/Site_Files/leather-texture.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .gold-text {
     background-image: url("/Site_Files/gold-texture.png");
     background-repeat: no-repeat;
@@ -219,7 +284,6 @@ body {
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    /*-webkit-text-stroke: 3px #ffaa00;*/
    }
 
 
