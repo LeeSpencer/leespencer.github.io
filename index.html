@@ -19,16 +19,58 @@
     <meta name="author" content="Spencer Lee">
     <link href="style.css" type="text/css" rel="stylesheet">
 
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=New+Rocker&display=swap" rel="stylesheet"> 
+
     <!-- Load the main JavaScript -->
     <script src="js/imports.js" defer></script>
     <script src="js/main.js" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="book-backside"></div>
+    <!-- todo: make lame version for the js-disabled -->
+    <div class="js container">
 		<div class="closed-book book">
-			<div class="front">
+            <div class="book-backside"></div>
+
+            <div class="book-page">
+            </div>
+
+            <div class="book-page">
+                <img alt="Illustration of a male" class="unselectable" id="illustration-man" src="/Site_Files/illustration-man.png">
+
+                <button class="next-page-btn">
+                    <img alt="Click the button below" class="unselectable" id="illustration-click" src="/Site_Files/click.png">
+                    <img class="unhighlighted" src="/Site_Files/next.png">
+                    <img class="highlighted" src="/Site_Files/next-white.png">
+                </button>
+
+                <div class="book-page-reverse">
+
+                    <button class="previous-page-btn">
+                        <img class="unhighlighted" src="/Site_Files/previous.png">
+                        <img class="highlighted" src="/Site_Files/previous-white.png">
+                    </button>
+                </div>
+            </div>
+
+            <div class="book-page flip-page-1"></div>
+            <div class="book-page flip-page-2"></div>
+            <div class="book-page flip-page-3">
+                <div class="book-page-reverse">
+                    <h2>The</h2>
+                    <h1>Websitus Spencerus</h1>
+                    <h3>A Repository of Information on</h3>
+                    <h2>Spencer Lee</h2>
+                    <img class="unselectable" id="page-line" src="/Site_Files/page-line.PNG">
+                </div>
+            </div>
+            
+            
+
+			<div class="book-front">
 				<div class="cover">
 					<img class="unselectable book-ring" src="/Site_Files/book-ring.png">
                     <img class="unselectable book-corner-top" src="/Site_Files/book-corner-top.png">
@@ -36,7 +78,8 @@
 				</div>
                 <div class="cover-inside"></div>
 			</div>
-			<div class="left-side">
+
+			<div class="book-spine">
 				<h2>
 					<span class="unselectable gold-text">Click to open</span>
 				</h2>
