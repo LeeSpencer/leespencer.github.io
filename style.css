@@ -1,6 +1,12 @@
+/****************************************/
+/*            Variables                 */
+/****************************************/
+
 :root {
     --book-width: 400px;
     --book-height: 500px;
+    --page-turning-speed: .5s ease-in-out, box-shadow .35s ease-in-out;
+    --book-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
 }
 
 /****************************************/
@@ -42,22 +48,14 @@ the mobile nav (.icon) */
 * {
     margin: 0;
     padding: 0;
-    backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform-style: flat;
-    -moz-transform-style: flat;
-    transform-style: flat;
 }
 
 html {
     scroll-behavior: smooth;
-    display: border-box;
 }
 
 body {
     font-family: 'Gill Sans','Gill Sans MT','Calibri','Trebuchet MS',sans-serif;
-    display: border-box;
     background-color: rgb(209, 209, 209);
 }
 
@@ -68,33 +66,109 @@ body {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    pointer-events: none;
 }
 
 /****************************************/
 /*           Open book styling          */
 /****************************************/
+
+.book-page h1, .book-page h2, .book-page h3 {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 60px;
+}
+.book-page h1 {
+    font-size: 44px;
+    font-family: 'New Rocker', cursive;
+}
+.book-page h2 {
+    font-family: 'Montserrat', 'Copperplate', sans-serif;
+}
+.book-page h3 {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-family: 'Montserrat', 'Copperplate', sans-serif;
+}
+.book button {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    border: none;
+    cursor: pointer;
+    height: 61px;
+    width: 42px;
+    border: none;
+    background: none;
+    overflow: visible;
+}
+.next-page-btn {
+    right: 2%;
+}
+.previous-page-btn {
+    left: 2%;
+}
+.book button img {
+    height: 50px;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.book button img.unhighlighted,
+.book button:hover img.highlighted {
+    visibility: visible;
+}
+.book button img.highlighted, 
+.book button:hover img.unhighlighted {
+    visibility: hidden;
+}
+.next-page-btn img#illustration-click {
+    top: -100%;
+    left: -50%;
+}
+#page-line {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+}
+#illustration-man {
+    width: auto;
+    height: 80%;
+    margin: 10% auto;
+    display: block;
+}
+
+
 .container .open-book {
     transform-origin: left center;
     -moz-transform-origin: left center;
     -webkit-transform-origin: left center;
     box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
 
-    -webkit-transition: -webkit-transform .5s ease-in-out, box-shadow .35s ease-in-out;
-    -moz-transition: -moz-transform .5s ease-in-out, box-shadow .35s ease-in-out;
-    transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    -webkit-transition: -webkit-transform var(--page-turning-speed);
+    -moz-transition: -moz-transform var(--page-turning-speed);
+    transition: transform var(--page-turning-speed);
 }
 
 .cover-inside {
-    background-image: url("/Site_Files/book-inside.png");
+    background-image: url("/Site_Files/book-inside2.png");
     background-repeat: no-repeat;
     background-size: cover;
     transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -webkit-transform: rotateY(-180deg);
 
-    -webkit-transition: -webkit-transform .5s ease-in-out, box-shadow .35s ease-in-out;
-    -moz-transition: -moz-transform .5s ease-in-out, box-shadow .35s ease-in-out;
-    transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    -webkit-transition: -webkit-transform var(--page-turning-speed);
+    -moz-transition: -moz-transform var(--page-turning-speed);
+    transition: transform var(--page-turning-speed);
+
+    
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 
     width: var(--book-width);
     height: var(--book-height);
@@ -102,28 +176,80 @@ body {
 
 .book-backside {
     visibility: hidden;
-    background-image: url("/Site_Files/book-backside.png");
+    background-image: url("/Site_Files/book-backside2.png");
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
     width: var(--book-width);
     height: var(--book-height);
-    border-radius: 2px 4px 4px 2px;
-    -webkit-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
-    -moz-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
-    box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
-    -webkit-transition: -webkit-transform .5s ease-in-out, box-shadow .35s ease-in-out;
-    -moz-transition: -moz-transform .5s ease-in-out, box-shadow .35s ease-in-out;
-    transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+    -webkit-box-shadow: var(--book-shadow);
+    -moz-box-shadow: var(--book-shadow);
+    box-shadow: var(--book-shadow);
+    -webkit-transition: -webkit-transform var(--page-turning-speed);
+    -moz-transition: -moz-transform var(--page-turning-speed);
+    transition: transform var(--page-turning-speed);
     transform-origin: left;
     -moz-transform-origin: left;
     -webkit-transform-origin: left;
-    
+}
+
+.book-page {
+    visibility: hidden;
+    position: absolute;
+    width: 95%;
+    height: 91%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    transform-origin: left center;
+    backface-visibility: visible;
+    -moz-backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    margin-top: 6%;
+    background-image: url('/Site_files/book-page-right.png');
+    background-position-x: left;
+    -webkit-transition: -webkit-transform var(--page-turning-speed);
+    -moz-transition: -moz-transform var(--page-turning-speed);
+    transition: transform var(--page-turning-speed);
+}
+
+.book-page > .book-page-reverse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-image: url('/Site_files/book-page-left.png');
+    background-position-x: right;
+    transform: rotateY(-180deg);
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-sizing: border-box;
+}
+
+.flip-page-1 {
+    -webkit-transition: -webkit-transform .6s ease-in-out .01s;
+    -moz-transition: -moz-transform .6s ease-in-out .01s;
+    transition: transform .6s ease-in-out .01s;
+    background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('/Site_files/book-page-right.png');
+}
+.flip-page-2 {
+    -webkit-transition: -webkit-transform .7s ease-in-out .01s;
+    -moz-transition: -moz-transform .7s ease-in-out .01s;
+    transition: transform .7s ease-in-out .01s;
+    background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('/Site_files/book-page-right.png');
+}
+.flip-page-3 {
+    -webkit-transition: -webkit-transform .8s ease-in-out .01s;
+    -moz-transition: -moz-transform .8s ease-in-out .01s;
+    transition: transform .8s ease-in-out .01s;
 }
 
 /****************************************/
@@ -134,6 +260,7 @@ body {
     z-index: 1;
     perspective: 3000px;
     height: 100vh;
+    overflow: hidden;
 }
   
 .book {
@@ -145,10 +272,9 @@ body {
     -moz-transform: translateY(-50%);
     width: var(--book-width);
     height: var(--book-height);
-    border-radius: 2px 4px 4px 2px;
-    -webkit-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
-    -moz-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
-    box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+    -webkit-box-shadow: var(--book-shadow);
+    -moz-box-shadow: var(--book-shadow);
+    box-shadow: var(--book-shadow);
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -171,18 +297,18 @@ body {
 }
 
 .container .book > div,
-.container .front > div {
+.container .book-front > div {
     display: block;
     position: absolute;
 }
 
-.container .closed-book .front {
+.container .closed-book .book-front {
     -webkit-transform: translate3d(0,0,20px);
     -moz-transform: translate3d(0,0,20px);
     transform: translate3d(0,0,20px);
 }
 
-.container .front {
+.container .book-front {
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -195,8 +321,8 @@ body {
     z-index: 10;
 }
 
-.container .left-side {
-    width: 40px;
+.container .book-spine {
+    width: 41px;
     left: -20px;
     height: var(--book-height);
     background-image: url("/Site_Files/leather-binder.png");
@@ -210,7 +336,6 @@ body {
 .book-ring, .book-corner-top, .book-corner-bot {
     position: absolute;
     filter: drop-shadow(0px 5px 0px #000);
-    pointer-events: none;
 }
 
 .book-ring {
@@ -229,7 +354,7 @@ body {
     right: 2%;
 }
 
-.container .front:after {
+.container .book-front:after {
     content: '';
     position: absolute;
     top: 1px;
@@ -256,10 +381,13 @@ body {
     width: var(--book-width);
     height: var(--book-height);
     box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 
-.container h2 {
+.container .book-spine h2 {
     width: calc(var(--book-height) - 30px);
     height: 40px;
     color: #2b2b2b;
