@@ -27,6 +27,7 @@
     <!-- Load the main JavaScript -->
     <script src="js/imports.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/tracing-minigame.js" defer></script>
 </head>
 
 <body>
@@ -36,13 +37,62 @@
             <div class="book-backside"></div>
 
             <div class="book-page">
+                <h1 style="margin-top: 30%;">The End</h1>
+            </div>
+
+            <div class="book-spine">
+				<h2>
+					<span class="unselectable gold-text">Click to open</span>
+				</h2>
+			</div>
+
+            <div class="book-front">
+				<div class="cover">
+					<img class="unselectable book-ring" src="/Site_Files/book-ring.png">
+                    <img class="unselectable book-corner-top" src="/Site_Files/book-corner-top.png">
+                    <img class="unselectable book-corner-bot" src="/Site_Files/book-corner-bottom.png">
+				</div>
+                <div class="cover-inside"></div>
+			</div>
+
+            <div class="book-page flip-page-1"></div>
+            <div class="book-page flip-page-2"></div>
+            <div class="book-page flip-page-3">
+                <div class="book-page-reverse">
+                    <h2>The</h2>
+                    <h1>Websitus Spencerus</h1>
+                    <h3>A Repository of Information on</h3>
+                    <h2>Spencer Lee</h2>
+                    <img class="unselectable" id="page-line" src="/Site_Files/page-line.PNG">
+                </div>
             </div>
 
             <div class="book-page">
-                <img alt="Illustration of a male" class="unselectable" id="illustration-man" src="/Site_Files/illustration-man.png">
+                <div class="flavor-text">
+                    <p>Peer into the fabric woven from history;</p>
+                    <p>reveal one's past and experiences.</p>
+                </div>
+                <br>
+                <p>Trace the rune below to perform the divination spell.</p>
+                <br>
+                <p>Click and drag over the image to begin drawing.</p>
+                <div class="tracing-game-container diamond-border">
+                    <canvas class="tracing-game">
+                        <a href="https://drive.google.com/file/d/1htR4nr4oxCVCmspR5BA6zkn4cuJyZVc8/preview">
+                            <img
+                            alt="Picture tracing game that opens a resume upon completion"
+                            src="/Site_Files/divination-rune.png">
+                        </a>
+                    </canvas>
+                </div>
+                <!--todo:
+                clickable table of contents (page numbers?)
+                just open resume in new tab after completing minigame
+                make drawing canvas span the whole book (not per page) but make pointerevents:none during page turns (but how to put canvas behind text??)
+                loading screen until all imgs are loaded
+            -->
 
                 <button class="next-page-btn">
-                    <img alt="Click the button below" class="unselectable" id="illustration-click" src="/Site_Files/click.png">
                     <img class="unhighlighted" src="/Site_Files/next.png">
                     <img class="highlighted" src="/Site_Files/next-white.png">
                 </button>
@@ -56,34 +106,25 @@
                 </div>
             </div>
 
-            <div class="book-page flip-page-1"></div>
-            <div class="book-page flip-page-2"></div>
-            <div class="book-page flip-page-3">
+            <div class="book-page">
+                <img alt="Illustration of a male" class="unselectable" id="illustration-man" src="/Site_Files/illustration-man.png">
+
+                <button class="next-page-btn">
+                    <img alt="Click the arrow buttons to flip pages" class="unselectable" id="illustration-click" src="/Site_Files/click.png">
+                    <img class="unhighlighted" src="/Site_Files/next.png">
+                    <img class="highlighted" src="/Site_Files/next-white.png">
+                </button>
+
                 <div class="book-page-reverse">
-                    <h2>The</h2>
-                    <h1>Websitus Spencerus</h1>
-                    <h3>A Repository of Information on</h3>
-                    <h2>Spencer Lee</h2>
-                    <img class="unselectable" id="page-line" src="/Site_Files/page-line.PNG">
+                    <h2>Resume Divination</h2>
+
+                    <img alt="Illustration of a scroll" class="unselectable" id="illustration-scroll" src="/Site_Files/illustration-scroll.png">
+                    <button class="previous-page-btn">
+                        <img class="unhighlighted" src="/Site_Files/previous.png">
+                        <img class="highlighted" src="/Site_Files/previous-white.png">
+                    </button>
                 </div>
             </div>
-            
-            
-
-			<div class="book-front">
-				<div class="cover">
-					<img class="unselectable book-ring" src="/Site_Files/book-ring.png">
-                    <img class="unselectable book-corner-top" src="/Site_Files/book-corner-top.png">
-                    <img class="unselectable book-corner-bot" src="/Site_Files/book-corner-bottom.png">
-				</div>
-                <div class="cover-inside"></div>
-			</div>
-
-			<div class="book-spine">
-				<h2>
-					<span class="unselectable gold-text">Click to open</span>
-				</h2>
-			</div>
 		</div>
         
 	</div>
