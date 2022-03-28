@@ -22,7 +22,7 @@
         previousButtons: document.querySelectorAll('.previous-page-btn')
     };
 
-    let pageDeg = -170;
+    let pageDeg = -173;
 
 
 
@@ -66,8 +66,8 @@
 
             // Flip inside pages animation
             for (const flipPage of HTML.flipPages) {
-                setTransform(flipPage, 'rotateY('+pageDeg+'deg)');
                 pageDeg += 3;
+                setTransform(flipPage, 'rotateY('+pageDeg+'deg)');
             }
 
             
@@ -78,8 +78,9 @@
     function flipToNextPage(event) {
         const target = imports.getEventTarget(event);
         const currentPage = target.closest('.book-page');
+
+        pageDeg++;
         setTransform(currentPage, 'rotateY('+pageDeg+'deg)');
-        pageDeg += 1;
     }
 
     /** Flips to the previous page. */

@@ -140,9 +140,47 @@ body {
     margin: 10% auto;
     display: block;
 }
+#illustration-scroll {
+    height: 60%;
+    width: auto;
+    margin: 5% auto;
+    display: block;
+}
+.tracing-game-container {
+    height: 50%;
+    width: 50%;
+    margin: 10% auto;
+    display: block;
+    padding-top: 20%;
+}
+.tracing-game-container > .tracing-game {
+    height: auto;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    cursor: url("/Site_Files/quill.png") 7 26, default;
+}
+.diamond-border {
+    /*border-image: url("/Site_Files/diamond-border.PNG") 130 48 48 44;
+    border-image-repeat: stretch round;
+    border-image-width: 12px;
+    border-image-outset: 13px;*/
+    background-image: url("/Site_Files/diamond-border.PNG");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.book canvas > img {
+    visibility: hidden;
+}
+
+.flavor-text > p {
+    font-style: italic;
+    text-align: center;
+}
 
 
 .container .open-book {
+    overflow: visible;
     transform-origin: left center;
     -moz-transform-origin: left center;
     -webkit-transform-origin: left center;
@@ -154,7 +192,7 @@ body {
 }
 
 .cover-inside {
-    background-image: url("/Site_Files/book-inside2.png");
+    background-image: url("/Site_Files/book-inside.png");
     background-repeat: no-repeat;
     background-size: cover;
     transform: rotateY(-180deg);
@@ -176,7 +214,7 @@ body {
 
 .book-backside {
     visibility: hidden;
-    background-image: url("/Site_Files/book-backside2.png");
+    background-image: url("/Site_Files/book-backside.png");
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
@@ -196,8 +234,9 @@ body {
 .book-page {
     visibility: hidden;
     position: absolute;
-    width: 95%;
-    height: 91%;
+    width: 85%;
+    height: 83%;
+    padding: 5%;
     top: 0;
     left: 0;
     transform-style: preserve-3d;
@@ -206,9 +245,9 @@ body {
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     transform-origin: left center;
-    backface-visibility: visible;
-    -moz-backface-visibility: visible;
-    -webkit-backface-visibility: visible;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     margin-top: 6%;
     background-image: url('/Site_files/book-page-right.png');
     background-position-x: left;
@@ -232,6 +271,12 @@ body {
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     box-sizing: border-box;
+}
+
+.flip-page-1, .flip-page-2, .flip-page-3 {
+    backface-visibility: visible;
+    -moz-backface-visibility: visible;
+    -webkit-backface-visibility: visible;
 }
 
 .flip-page-1 {

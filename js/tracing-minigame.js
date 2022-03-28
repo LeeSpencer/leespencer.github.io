@@ -112,10 +112,7 @@
             drawing = false;
             if (tracedPixels.size >= requiredPixels) {
                 window.open(RESUME_URL, '_blank') ||
-                alert('Oops! Some protective charms are preventing us from opening a new tab. Use the following link to view my resume instead: '+RESUME_URL);
-                // show modal with link to resume "oops tabs not enabled plz click this link"
-                // OR show the sparkly animation
-                // OR flip page to error page
+                window.location.assign(RESUME_URL);
             }
         });
 
