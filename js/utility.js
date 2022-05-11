@@ -55,6 +55,7 @@
         element.style.MozTransform = transform;
     }
 
+    /** Returns the value of a CSS variable, without a "px" suffix */
     function cssVariableToNum(element, varName) {
         const valueStr = getComputedStyle(element)
                         .getPropertyValue(varName);
