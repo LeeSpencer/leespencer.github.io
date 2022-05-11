@@ -7,6 +7,10 @@
     --book-height: 500px;
     --page-turning-speed: .5s ease-in-out, box-shadow .35s ease-in-out;
     --book-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+    
+    --radiance-tile-width: 192px;
+    --radiance-total-width: 34560px;
+    --num-radiance-tiles: 180;
 }
 
 /****************************************/
@@ -68,6 +72,89 @@ body {
     -ms-user-select: none;
     pointer-events: none;
 }
+
+.square-element:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+/****************************************/
+/*       Tracing minigame: Generic      */
+/****************************************/
+
+.tracing-game-container {
+    width: 50%;
+    margin: 10% auto;
+    display: block;
+    position: relative;
+}
+
+.tracing-game-container > .tracing-game {
+    height: auto;
+    width: 70%;
+    position: absolute;
+    left: 15%;
+    top: 10%;
+    cursor: url("/Site_Files/quill.png") 7 26, default;
+}
+
+.square-border {
+    border-image-source: url("/Site_Files/square-border.PNG");
+    border-image-slice: 44;
+    border-image-repeat: stretch;
+    border-image-width: 12px;
+    border-image-outset: 13px;
+}
+
+.completion-link {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.completion-animation {
+    background-repeat: no-repeat;
+    animation: animate-spritesheet 5s steps(var(--num-tiles)) 1 paused;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+}
+
+@keyframes animate-spritesheet {
+    100% {
+        background-position: calc(-1 * var(--spritesheet-width));
+    }
+}
+
+/****************************************/
+/*       Resume tracing minigame        */
+/****************************************/
+
+.radiance {
+    --tile-size: var(--radiance-tile-width);
+    --num-tiles: var(--num-radiance-tiles);
+    --spritesheet-width: var(--radiance-total-width);
+
+    background-image: url("/Site_Files/radiance.png");
+}
+
+.resume-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 70%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 5px black;
+}
+
+.resume-icon:hover {
+    outline: black 3px solid;
+    outline-offset: 3px;
+}
+
+
 
 /****************************************/
 /*           Open book styling          */
@@ -146,29 +233,7 @@ body {
     margin: 5% auto;
     display: block;
 }
-.tracing-game-container {
-    height: 50%;
-    width: 50%;
-    margin: 10% auto;
-    display: block;
-    padding-top: 20%;
-}
-.tracing-game-container > .tracing-game {
-    height: auto;
-    width: 50%;
-    display: block;
-    margin: 0 auto;
-    cursor: url("/Site_Files/quill.png") 7 26, default;
-}
-.diamond-border {
-    /*border-image: url("/Site_Files/diamond-border.PNG") 130 48 48 44;
-    border-image-repeat: stretch round;
-    border-image-width: 12px;
-    border-image-outset: 13px;*/
-    background-image: url("/Site_Files/diamond-border.PNG");
-    background-size: contain;
-    background-repeat: no-repeat;
-}
+
 .book canvas > img {
     visibility: hidden;
 }
@@ -296,6 +361,8 @@ body {
     -moz-transition: -moz-transform .8s ease-in-out .01s;
     transition: transform .8s ease-in-out .01s;
 }
+
+
 
 /****************************************/
 /*           Book cover display         */

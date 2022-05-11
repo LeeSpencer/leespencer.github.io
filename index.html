@@ -25,13 +25,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=New+Rocker&display=swap" rel="stylesheet"> 
 
     <!-- Load the main JavaScript -->
-    <script src="js/imports.js" defer></script>
-    <script src="js/main.js" defer></script>
+    <script src="js/utility.js" defer></script>
+    <script src="js/book.js" defer></script>
     <script src="js/tracing-minigame.js" defer></script>
 </head>
 
 <body>
-    <!-- todo: make lame version for the js-disabled -->
+    <!--todo:
+        make lame version for the js-disabled
+        clickable table of contents (page numbers?)
+        just open resume in new tab after completing minigame
+        make drawing canvas span the whole book (not per page) but make pointerevents:none during page turns (but how to put canvas behind text??)
+        loading screen until all imgs are loaded
+        also include easy-to-access links at the bottom right corner anyway (to resume, google drive w/ projects, github etc.)
+        also a page for accessibility options (disable flashing animations)
+    -->
     <div class="js container">
 		<div class="closed-book book">
             <div class="book-backside"></div>
@@ -76,22 +84,16 @@
                 <p>Trace the rune below to perform the divination spell.</p>
                 <br>
                 <p>Click and drag over the image to begin drawing.</p>
-                <div class="tracing-game-container diamond-border">
+                <div class="resume-game tracing-game-container square-border square-element">
                     <canvas class="tracing-game">
-                        <a href="https://drive.google.com/file/d/1htR4nr4oxCVCmspR5BA6zkn4cuJyZVc8/preview">
-                            <img
-                            alt="Picture tracing game that opens a resume upon completion"
-                            src="/Site_Files/divination-rune.png">
-                        </a>
+                        <img alt="Picture tracing game that opens a resume upon completion" src="/Site_Files/divination-rune.png">
                     </canvas>
+
+                    <div class="radiance completion-animation"></div>
+                    <a class="resume-link completion-link" href="https://drive.google.com/file/d/1htR4nr4oxCVCmspR5BA6zkn4cuJyZVc8/preview" target="_blank">
+                        <img class="resume-icon" src="/Site_Files/resume-icon.jpg" alt="Clickable resume icon">
+                    </a>
                 </div>
-                <!--todo:
-                clickable table of contents (page numbers?)
-                just open resume in new tab after completing minigame
-                make drawing canvas span the whole book (not per page) but make pointerevents:none during page turns (but how to put canvas behind text??)
-                loading screen until all imgs are loaded
-                also include easy-to-access links at the bottom right corner anyway (to resume, google drive w/ projects, github etc.)
-            -->
 
                 <button class="next-page-btn">
                     <img class="unhighlighted" src="/Site_Files/next.png">
@@ -127,7 +129,6 @@
                 </div>
             </div>
 		</div>
-        
 	</div>
 </body>
 
