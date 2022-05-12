@@ -3,6 +3,10 @@
 /****************************************/
 
 :root {
+    --main-fonts: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    --fancy-header-font: 'New Rocker', cursive;
+    --subheading-font: 'Montserrat', 'Copperplate', sans-serif;
+
     --book-width: 400px;
     --book-height: 500px;
     --page-turning-speed: .5s ease-in-out, box-shadow .35s ease-in-out;
@@ -59,7 +63,7 @@ html {
 }
 
 body {
-    font-family: 'Gill Sans','Gill Sans MT','Calibri','Trebuchet MS',sans-serif;
+    font-family: var(--main-fonts);
     background-color: rgb(209, 209, 209);
 }
 
@@ -77,6 +81,40 @@ body {
     content: "";
     display: block;
     padding-bottom: 100%;
+}
+
+.quick-links {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    -webkit-transition: visibility 0s linear 0.35s, opacity 0.35s linear;
+    -moz-transition: visibility 0s linear 0.35s, opacity 0.35s linear;
+    transition: visibility 0s linear 0.35s, opacity 0.35s linear;
+}
+
+/****************************************/
+/*           Quick Links                */
+/****************************************/
+
+.quick-links ul {
+    display: flex;
+    list-style: none;
+    font-size: 20px;
+}
+
+.quick-links ul li:first-child {
+    font-style: italic;
+}
+
+.quick-links ul li::after {
+    content: "•";
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.quick-links ul li:last-child::after {
+    content: "";
+    margin: 0;
 }
 
 /****************************************/
@@ -110,6 +148,8 @@ body {
 .completion-link {
     visibility: hidden;
     opacity: 0;
+    -webkit-transition: opacity 2s ease;
+    -moz-transition: opacity 2s ease;
     transition: opacity 2s ease;
 }
 
@@ -145,6 +185,8 @@ body {
     top: 50%;
     left: 50%;
     height: 70%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 5px black;
 }
@@ -167,15 +209,15 @@ body {
 }
 .book-page h1 {
     font-size: 44px;
-    font-family: 'New Rocker', cursive;
+    font-family: var(--fancy-header-font);
 }
 .book-page h2 {
-    font-family: 'Montserrat', 'Copperplate', sans-serif;
+    font-family: var(--subheading-font);
 }
 .book-page h3 {
     font-size: 12px;
     letter-spacing: 3px;
-    font-family: 'Montserrat', 'Copperplate', sans-serif;
+    font-family: var(--subheading-font);
 }
 .book button {
     position: absolute;
@@ -219,6 +261,8 @@ body {
     bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     width: 90%;
 }
 #illustration-man {

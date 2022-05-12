@@ -9,6 +9,8 @@
         noJSElements: document.querySelectorAll('.no-js'),
         jsElements: document.querySelectorAll('.js'),
 
+        quickLinks: document.querySelector('.quick-links'),
+
         book: document.querySelector('.book'),
         bookCover: document.querySelector('.book-front'),
         backCover: document.querySelector('.book-backside'),
@@ -94,6 +96,10 @@
     //////////////////////////////////////////////
     HTML.book.addEventListener('click', function handleOpen() {
         openBook();
+
+        HTML.quickLinks.style.visibility = 'hidden';
+        HTML.quickLinks.style.opacity = 0;
+
         HTML.book.removeEventListener('click', handleOpen);
     });
 
