@@ -37,6 +37,9 @@
         make drawing canvas span the whole book (not per page) but make pointerevents:none during page turns (but how to put canvas behind text??)
         loading screen until all imgs are loaded
         also a page for accessibility options (disable flashing animations)
+                        
+// Animations Select - Light © Dreams Circle
+// Warning! This stream may feature bright lights! Those with Epilepsy or have special eyes be warned.
     -->
     <div class="js container">
 		<div class="closed-book book">
@@ -74,6 +77,23 @@
             </div>
 
             <div class="book-page">
+                <h2>front</h2>
+
+                <button class="next-page-btn">
+                    <img class="unhighlighted" src="/Site_Files/next.png">
+                    <img class="highlighted" src="/Site_Files/next-white.png">
+                </button>
+
+                <div class="book-page-reverse">
+                    <h2>reverse</h2>
+                    <button class="previous-page-btn">
+                        <img class="unhighlighted" src="/Site_Files/previous.png">
+                        <img class="highlighted" src="/Site_Files/previous-white.png">
+                    </button>
+                </div>
+            </div>
+
+            <div class="book-page">
                 <div class="flavor-text">
                     <p>Peer into the fabric woven from history;</p>
                     <p>reveal one's past and experiences.</p>
@@ -88,8 +108,8 @@
                     </canvas>
 
                     <div class="radiance completion-animation"></div>
-                    <a class="resume-link completion-link" href="https://drive.google.com/file/d/1htR4nr4oxCVCmspR5BA6zkn4cuJyZVc8/preview" target="_blank">
-                        <img class="resume-icon" src="/Site_Files/resume-icon.jpg" alt="Clickable resume icon">
+                    <a class="resume-link completion-link" href="https://drive.google.com/file/d/1lF-_C0Rz0vavjyVtm-1CpACkfhFU7sIa/view" target="_blank">
+                        <img class="resume-icon transform-center" src="/Site_Files/resume-icon.jpg" alt="Clickable resume icon">
                     </a>
                 </div>
 
@@ -99,7 +119,8 @@
                 </button>
 
                 <div class="book-page-reverse">
-
+                    <h2>Education</h2>
+                    <img class="unselectable chapter-illustration transform-center" alt="Illustration of a bag" id="illustration-bag" src="/Site_Files/illustration-bag.png">
                     <button class="previous-page-btn">
                         <img class="unhighlighted" src="/Site_Files/previous.png">
                         <img class="highlighted" src="/Site_Files/previous-white.png">
@@ -119,7 +140,7 @@
                 <div class="book-page-reverse">
                     <h2>Resume Divination</h2>
 
-                    <img alt="Illustration of a scroll" class="unselectable" id="illustration-scroll" src="/Site_Files/illustration-scroll.png">
+                    <img class="unselectable chapter-illustration transform-center" alt="Illustration of a scroll" id="illustration-scroll" src="/Site_Files/illustration-scroll.png">
                     <button class="previous-page-btn">
                         <img class="unhighlighted" src="/Site_Files/previous.png">
                         <img class="highlighted" src="/Site_Files/previous-white.png">
@@ -131,9 +152,9 @@
         <section class="quick-links">
             <ul>
                 <li>Quick Links</li>
-                <li><a target="_blank" href="">Resume</a></li>
+                <li><a target="_blank" href="https://drive.google.com/file/d/1lF-_C0Rz0vavjyVtm-1CpACkfhFU7sIa/view">Resume</a></li>
                 <li><a target="_blank" href="https://github.com/LeeSpencer/">Github</a></li>
-                <li><a target="_blank" href="">Project Files</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/mr-spencer-lee/">LinkedIn</a></li>
             </ul>
         </section>
 	</div>
