@@ -22,7 +22,7 @@
 
     const BASIC_INFO = ("Age: 24\n"+
                         "Location: Charlotte, MI, USA\n"+
-                        "Expertise: Frontend, game development\n"+
+                        "Expertise: Frontend development\n"+
                         "\n"+
                         "> Education\n"+
                         "> Go Back\n")
