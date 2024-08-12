@@ -10,7 +10,7 @@
     const FONT_SIZE = 46;
     const FONT_FAMILY = "Courier New";
 
-    const PAGE_1 = ("About Spencer [ver. 1.2.0]\n" +
+    const PAGE_1 = ("About Spencer [ver. 1.3.0]\n" +
                         "\n"+
                         "> Click Here")
                        .split("");
@@ -20,9 +20,9 @@
                     "> Fun Facts")
                     .split("");
 
-    const BASIC_INFO = ("Age: 20\n"+
+    const BASIC_INFO = ("Age: 24\n"+
                         "Location: Charlotte, MI, USA\n"+
-                        "Expertise: Web, game development\n"+
+                        "Expertise: Frontend, game development\n"+
                         "\n"+
                         "> Education\n"+
                         "> Go Back\n")
@@ -32,8 +32,7 @@
                         "> Go Back")
                         .split("");
     const VASSAR =  ("Vassar College\n"+
-                        "Senior\n"+
-                        "Computer Science Major\n"+
+                        "Bachelor's Degree: Computer Science\n"+
                         "GPA: 3.94\n"+
                         "\n"+
                         "> Go Back")
@@ -48,15 +47,15 @@
                         "* marshmallows (for eating)\n"+
                         "* guinea pigs (not for eating)\n"+
                         "Currently learning:\n"+
-                        "Japanese, Chinese\n"+
+                        "User experience design\n"+
                         "\n"+
                         "> Continue\n"+
                         "> Go Back")
                         .split("");
     const FUN_FACTS_CONT = ("Hobbies:\n"+
-                            "* ocarina\n"+
-                            "* harmonica\n"+
-                            "* e-sports (Super Smash Bros.)\n"+
+                            "* cycling\n"+
+                            "* gardening\n"+
+                            "* cooking\n"+
                             "\n"+
                             "> Go Back")
                             .split("");
