@@ -168,7 +168,7 @@ section ol:hover .card {
     .page-nav {
         -webkit-backdrop-filter: blur(4px);
         backdrop-filter: blur(4px);
-        background-color: rgba(var(--background-color), 0.5);
+        background-color: rgba(var(--background-color), 0.5) !important;
     }
 }
 
@@ -177,7 +177,14 @@ section ol:hover .card {
     position: -webkit-sticky; /* Safari */
     top: 0;
     z-index: 4;
-    background-color: rgba(var(--background-color), 0.9);
+    background-image: linear-gradient(to bottom,
+        rgba(var(--background-color)),
+        rgba(var(--background-color), 0.35),
+        rgba(var(--background-color), 0.05)
+    );
+
+    /* Fallback if backdrop-filter isn't available */
+    background-color: rgba(var(--background-color), 0.9); 
 }
 
 .page-nav nav {
