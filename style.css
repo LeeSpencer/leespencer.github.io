@@ -128,7 +128,6 @@ section article p {
 .card {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
     gap: 1rem;
     margin-bottom: 3rem;
     transition-timing-function: var(--ease-in-out);
@@ -172,7 +171,7 @@ section ol:hover .card {
 .card .skills {
     display: flex;
     flex-flow: row wrap;
-    margin-top: 1rem;
+    margin-top: 0.825rem;
     list-style: none;
 }
 
@@ -180,12 +179,27 @@ section ol:hover .card {
     border-radius: 999px;
     background-color: rgba(var(--accent-color), 0.1);
     color: rgb(var(--accent-color));
-    margin-right: .375rem;
+    margin-right: 0.375rem;
+    margin-top: 0.375rem;
     padding: 0.5rem 0.75rem;
     font-size: 0.75rem;
 }
 
+.card a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+    .card-bg {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 640px) {
+    .card {
+        grid-template-columns: repeat(8, 1fr);
+    }
+
     .card aside {
         grid-column: span 2/span 2;
     }
