@@ -1,0 +1,371 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Load resources -->
+    <link rel="preload" href="game.min.js">
+    <link rel="preload" href="assets/loading-arrow.svg">
+    <link rel="preload" href="assets/village.jpg">
+    <link rel="preload" href="assets/button.png">
+    <link rel="prefetch" href="assets/character1.png">
+    <link rel="prefetch" href="assets/character2.png">
+    <link rel="prefetch" href="assets/character3.png">
+    <link rel="prefetch" href="assets/character4.png">
+    <link rel="prefetch" href="assets/dice1.png">
+    <link rel="prefetch" href="assets/dice2.png">
+    <link rel="prefetch" href="assets/dice3.png">
+    <link rel="prefetch" href="assets/dice4.png">
+    <link rel="prefetch" href="assets/dice5.png">
+    <link rel="prefetch" href="assets/dice6.png">
+    <link rel="prefetch" href="assets/fireball.png">
+    <link rel="prefetch" href="assets/heart.png">
+    <link rel="prefetch" href="assets/interiorTileset.png">
+    <link rel="prefetch" href="assets/lightning.png">
+    <link rel="prefetch" href="assets/monster1.png">
+    <link rel="prefetch" href="assets/monster2.png">
+    <link rel="prefetch" href="assets/monster3.png">
+    <link rel="prefetch" href="assets/monster4.png">
+    <link rel="prefetch" href="assets/monster5.png">
+    <link rel="prefetch" href="assets/monster6.png">
+    <link rel="prefetch" href="assets/monster7.png">
+    <link rel="prefetch" href="assets/monster8.png">
+    <link rel="prefetch" href="assets/monster9.png">
+    <link rel="prefetch" href="assets/monster10.png">
+    <link rel="prefetch" href="assets/ok-button.png">
+    <link rel="prefetch" href="assets/sword.png">
+</head>
+
+<body>
+    <!-- Images just for loading the assets -->
+    <img src="assets/button.png" style="display: none;">
+    <img src="assets/character1.png" style="display: none;">
+    <img src="assets/character2.png" style="display: none;">
+    <img src="assets/character3.png" style="display: none;">
+    <img src="assets/character4.png" style="display: none;">
+
+    
+    <!-- Loading page -->
+    <div id="load-page">
+        <div id="load-page-bg"></div>
+        <h1 id="load-page-text">Loading...</h1>
+        <img id="load-page-image" src="assets/loading-arrow.svg">
+    </div>
+
+    <!-- Background image -->
+    <img id="background-img" src="assets/village.jpg">
+
+    <!-- Start page -->
+    <div id="start-page">
+
+        <!-- Title menu stuff -->
+        <p id="title">Gates of Fate</p>
+        <div class="buttons-holder">
+            <button id="play-button" class="buttons">Play</button>
+            <button id="music-button" class="buttons blue">Enable Music</button>
+        </div>
+    </div>
+
+    <!-- The modal -->
+    <div id="image-modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="close-image-modal" class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img id="context-image" src="assets/monster1.png">
+            </div>
+        </div>
+    </div>
+
+    <!--Customize page-->
+    <div id="customize-page">
+        <div id="character-customize-wrapper">
+            <p id="text-customize">Click to Choose Your Character</p>
+            <div id="image-wrapper">
+                <button class="avatar-buttons" class="avatar" id="avatar-img-button">
+                    <img id="avatar-img" class="avatar" src="assets/character1.png">
+                </button>
+            </div>
+            <div id="text-customize">Enter Character's Name</div>
+            <!-- User input box -->
+            <form name="user-input-name" id="user-input-name">
+                <div style="position: relative; left: 40%">
+                    <input type="text" id="input-box-name" name="name" placeholder="Player 1" maxlength="20">
+                </div>
+                <br>
+                <div id="button-container-customize">
+                    <button class="buttons" id="play-button-customize">Play</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Exploration page -->
+    <div id="exploration-page">
+
+        <!-- Left sidebar -->
+        <div id="left-sidebar">
+            <div id="save-exit-wrapper">
+                <button id="save" class="buttons green">Save Game</button>
+                <br>
+                <button id="exit" class="buttons blue">Exit Game</button>
+            </div>
+        </div>
+
+        <!-- Middle content -->
+        <div id="middle-area">
+
+            <div id="room-graphic">
+                <!-- Loading image -->
+                <img id="loading-image" src="assets/loading-arrow.svg">
+            </div>
+            <!-- Textbox -->
+            <div id="text-passage-container" class="info-scroll-text">
+                <p id="text-passage" class="fade-in"><i>Thump. Thump thump. Thump.</i>
+                    The beating of your own heart jolts you awake. Your head pounds, aching, as you take in your surroundings.
+                    Click on objects in the room to interact with them.</p>
+                <button id="battle-button" class="buttons">Battle!</button>
+            </div>
+        </div>
+
+        <!-- Right sidebar -->
+        <!-- <div id="right-sidebar"> -->
+        <!-- Wrapper wrapper to get it at the bottom of sidebar -->
+        <!-- <div style="position: relative; height: 100%;"> -->
+        <!-- Character health
+                <div class="health">
+                    <span class="character-percent">50/100 HP</span>
+                    <div class="character-bar"></div>
+                </div>-->
+
+        <!-- <div id="inventory">
+                    <h1>&nbsp;&nbsp;Inventory&nbsp;&nbsp;</h1>
+                    <ul>
+                        <li>1x Set of Regular Clothes</li>
+                        <li>5x Cannoli</li>
+                        <li>1x Fork</li>
+                    </ul>
+                </div> -->
+        <!-- Wrapper -->
+
+        <!-- </div> -->
+        <!-- </div> -->
+
+    </div>
+
+    <div class="fight-flee-page" id="battle-page">
+
+        <div class="flex-container">
+            <!-- Character's heath and avatar -->
+            <div class="align-image" id="character-wrapper">
+                <div class="health-pad" id="character-health-pad">
+                    <div class="label" id="character-name">CharacterNickname</div>
+                    <div class="label" id="character-level">Level ??</div>
+                    <div class="health" id="character-health">
+                        <span class="character-percent" id="character-percent">50%</span>
+                        <div class="character-bar" id="character-bar">
+                            <span><img class="heart-img" src="assets/heart.png"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="experience" id="experience">
+                        <span class="experience-percent" id="experience-percent">0%</span>
+                        <div class="experience-bar" id="experience-bar">
+                            <span><img class="lightning-img" src="assets/lightning.png"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="experience-pad" id="experience-pad">
+                </div> -->
+                <img class="avatar" id="character-avatar" src="assets/character1.png">
+                <img id="character-weapon" src="assets/sword.png">
+                <span class="floaty" id="character-exp-floaty"></span>
+                <span class="floaty" id="character-health-floaty"></span>
+            </div>
+
+            <div id="dice-question-container">
+
+                <!-- Dice images -->
+                <div id="fight-wrapper">
+                    <img class="dice-img" src="assets/dice1.png">
+                    <img class="dice-img" src="assets/dice1.png">
+
+
+
+                    <!-- The math problem to solve -->
+                    <p id="math-question"></p>
+
+                    <!-- User input box -->
+                    <form name="user-input" id="user-input">
+                        <input type="text" id="input-box" name="answer" maxlength="2">
+                        <div id="bar-container">
+                            <div id="progress-bar">
+                                <button id="submit-answer">
+                                    Go!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <p id="time-remaining"></p>
+                    <!-- Tell the user if they were right or wrong -->
+                    <p id="math-result">Filler</p>
+                </div>
+
+            </div>
+
+            <!-- Monster's heath and avatar -->
+            <div class="align-image" id="monster-wrapper">
+                <div class="health-pad" id="monster-health-pad">
+                    <div class="label" id="monster-name">MonsterNickname</div>
+                    <div class="label" id="monster-level">Level ??</div>
+                    <div class="health" id="monster-health">
+                        <span class="monster-percent" id="monster-percent"></span>
+                        <div class="monster-bar" id="monster-bar">
+                            <span><img class="heart-img" src="assets/heart.png"></span>
+                        </div>
+                    </div>
+                </div>
+                <img class="avatar" id="monster-pic" src="assets/monster1.png">
+                <span class="floaty" id="monster-health-floaty"></span>
+                <img id="monster-weapon" src="assets/fireball.png">
+            </div>
+        </div>
+
+        <div class="button-container">
+
+            <!-- Roll dice button -->
+            <button class="buttons green" id="dice-roller">Attack!</button>
+
+            <!-- Flee button -->
+            <button class="buttons blue" id="flee-button">Flee</button>
+
+        </div>
+
+        <!-- Info textbox -->
+        <div class="info-scroll-text" id="battle-info-fight"></div>
+
+
+    </div>
+
+    <div class="fight-flee-page" id="flee-page">
+
+        <div class="flex-container">
+            <!-- Character's heath and avatar -->
+            <div class="align-image">
+                <div class="health-pad" id="character-health-pad">
+                    <div class="label" id="character-name-flee">CharacterNickname</div>
+                    <div class="label" id="character-level-flee">Level ??</div>
+                    <div class="health" id="character-health">
+                        <span class="character-percent" id="character-percent-flee">50%</span>
+                        <div class="character-bar" id="character-bar-flee">
+                            <span><img class="heart-img" src="assets/heart.png"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="experience" id="experience-flee">
+                        <span class="experience-percent" id="experience-percent-flee">0%</span>
+                        <div class="experience-bar" id="experience-bar-flee">
+                            <span><img class="lightning-img" src="assets/lightning.png"></span>
+                        </div>
+                    </div>
+                </div>
+                <img class="avatar" id="character-avatar-flee" src="assets/character1.png">
+            </div>
+
+            <div id="dice-question-container-flee">
+
+                <!-- Dice images -->
+                <img class="dice-img-flee" src="assets/dice1.png">
+                <img class="dice-img-flee" src="assets/dice1.png">
+
+
+                <!-- The math problem to solve -->
+                <p id="flee-dice-value"></p>
+
+            </div>
+
+            <!-- Monster's heath and avatar -->
+            <div class="align-image">
+                <div class="health-pad" id="monster-health-pad">
+                    <div class="label" id="monster-name-flee">MonsterNickname</div>
+                    <div class="label" id="monster-level-flee">Level ??</div>
+                    <div class="health" id="monster-health">
+                        <span class="monster-percent" id="monster-percent-flee"></span>
+                        <div class="monster-bar" id="monster-bar-flee">
+                            <span><img class="heart-img" src="assets/heart.png"></span>
+                        </div>
+                    </div>
+                </div>
+                <img class="avatar" id="monster-pic-flee" src="assets/monster1.png">
+            </div>
+        </div>
+
+        <div class="button-container">
+
+            <!-- Roll dice button -->
+            <button class="buttons green" id="dice-roller-flee">Flee!</button>
+
+            <!-- Items button -->
+            <button class="buttons blue" id="items-button">Item</button>
+
+        </div>
+
+        <!-- Info textbox -->
+        <div class="info-scroll-text" id="battle-info-flee"></div>
+
+    </div>
+
+    <!-- Audio -->
+    <audio id="bgm">
+        <source src="assets/sounds/peaceful loop.mp4" type="audio/mp4">
+        <source src="assets/sounds/peaceful loop.ogg" type="audio/ogg">
+    </audio>
+    <audio id="battle-bgm">
+        <source src="assets/sounds/battle bgm.mp4" type="audio/mp4">
+        <source src="assets/sounds/battle bgm.ogg" type="audio/ogg">
+    </audio>
+    <audio id="button-sound">
+        <source src="assets/sounds/bong.mp4" type="audio/mp4">
+        <source src="assets/sounds/bong.ogg" type="audio/ogg">
+    </audio>
+    <audio id="dice-sound">
+        <source src="assets/sounds/dice-sound.mp4" type="audio/mp4">
+        <source src="assets/sounds/dice-sound.ogg" type="audio/ogg">
+    </audio>
+    <audio id="fire-sound">
+        <source src="assets/sounds/fire-sound.mp4" type="audio/mp4">
+        <source src="assets/sounds/fire-sound.ogg" type="audio/ogg">
+    </audio>
+    <audio id="sword-sound">
+        <source src="assets/sounds/sword-sound.mp4" type="audio/mp4">
+        <source src="assets/sounds/sword-sound.ogg" type="audio/ogg">
+    </audio>
+    <audio id="door-sound">
+        <source src="assets/sounds/door-sound.mp4" type="audio/mp4">
+        <source src="assets/sounds/door-sound.ogg" type="audio/ogg">
+    </audio>
+    <audio id="crumbling-sound">
+        <source src="assets/sounds/crumbling.mp4" type="audio/mp4">
+        <source src="assets/sounds/crumbling.ogg" type="audio/ogg">
+    </audio>
+    <audio id="health-sound">
+        <source src="assets/sounds/health-exp-decrease.mp4" type="audio/mp4">
+        <source src="assets/sounds/health-exp-decrease.ogg" type="audio/ogg">
+    </audio>
+    
+
+    <!-- Load the script *after* the HTML elements have been created -->
+    <script src="game.min.js"></script>
+</body>
+
+</html>
