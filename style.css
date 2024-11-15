@@ -1,4 +1,38 @@
 /****************************************/
+/*                Fonts                 */
+/****************************************/
+
+/* inter-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/inter-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  
+  /* inter-italic - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/inter-v18-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  
+  /* inter-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../fonts/inter-v18-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  
+/****************************************/
 /*              Variables               */
 /****************************************/
 
@@ -78,6 +112,7 @@ section article p {
 .card-link h2::after {
     content: "➜";
     display: inline-block;
+    position: absolute;
     width: 20px;
     transform: rotate(-35deg);
     transition-timing-function: var(--ease-in-out);
@@ -108,7 +143,6 @@ section article p {
     border-radius: var(--rounded-rect);
     position: absolute;
     inset: -1.5rem;
-    pointer-events: none;
 }
 
 .card:hover .card-bg {
@@ -121,7 +155,7 @@ section ol:hover .card {
 
 .card h2 {
     font-size: 1em;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 0;
 }
 
