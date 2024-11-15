@@ -141,7 +141,10 @@ section article p {
 .card-bg {
     border-radius: var(--rounded-rect);
     position: absolute;
-    inset: -1.5rem;
+    top: -1.5rem;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    right: -1.5rem;
 }
 
 .card:hover .card-bg {
@@ -278,10 +281,13 @@ section ol:hover .card {
 }
 
 .logo {
-    fill: rgb(var(--primary-color));
     margin-right: auto;
     transition-timing-function: var(--ease-in-out);
     transition-duration: var(--transition-time);
+}
+
+.logo svg {
+    fill: rgb(var(--primary-color));
 }
 
 .theme-button {
