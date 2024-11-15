@@ -23,7 +23,7 @@
     <header class="page-nav">
         <nav><menu>
             <li class="logo"><a href="#top">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 208.03117" height="32" width="32">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 208.03117" height="32" width="32" aria-hidden="true">
                     <path d="m 208,88.01559 c 0.022,-7.76563 -0.9868,-15.49983 -3,-23 l 22.24,-9.72 c 7.7885,-3.54752 5.31797,-15.19862 -3.24,-15.28 -1.10175,-0.003 -2.19181,0.22569 -3.2,0.67 l -21.42,9.33 C 184.75505,19.45231 153.88219,0 120,0 86.117801,0 55.244942,19.45231 40.619996,50.01559 l -21.42,-9.33 c -1.008188,-0.44431 -2.098254,-0.67254 -3.199999,-0.67 -8.6646335,0.005 -11.1389735,11.85889 -3.2,15.33 l 22.2,9.67 c -2.013202,7.50017 -3.022011,15.23437 -3,23 v 8 H 7.9999965 c -4.418281,0 -7.9999965,3.58172 -7.9999965,8 0,4.41828 3.5817155,8 7.9999965,8 H 31.999997 v 8 c -0.02201,7.76563 0.986798,15.49983 3,23 l -22.2,9.67 c -4.1510795,1.70427 -6.0887605,6.48884 -4.2934005,10.60133 1.7953605,4.1125 6.6214735,5.94425 10.6933995,4.05867 l 21.42,-9.33 C 55.244942,188.57887 86.117801,208.03118 120,208.03118 c 33.88219,0 64.75505,-19.45231 79.38,-50.01559 l 21.42,9.36 c 4.02365,1.65195 8.62991,-0.21353 10.37016,-4.19978 1.74024,-3.98625 -0.0232,-8.63252 -3.97016,-10.46022 l -22.2,-9.75 c 2.0132,-7.50017 3.02201,-15.23437 3,-23 v -8 h 24 c 4.41828,0 8,-3.58172 8,-8 0,-4.41828 -3.58172,-8 -8,-8 h -24 z m -80,0 c 0,4.41828 -3.58172,8 -8,8 -4.41828,0 -8,-3.58172 -8,-8 v -64 c 0,-4.41828 3.58172,-8 8,-8 4.41828,0 8,3.58172 8,8 z m 64,32 c 0,39.76453 -32.2355,71.99997 -72,71.99997 -39.764505,0 -72.000003,-32.23544 -72.000003,-71.99997 v -8 H 192 Z" />
                     <ellipse cx="95" cy="-140" rx="12" ry="16" transform="scale(1,-1)">
                         <animate id="blink" attributeName="ry" dur="150ms" values="16;0;16" begin="8s;blink.end+8s" />
@@ -37,11 +37,11 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="theme-button">
-                <input type="checkbox" name="theme" autocomplete="off" />
-                <svg id="moon-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                <input aria-label="Change dark or light theme" type="checkbox" name="theme" autocomplete="off" />
+                <svg id="moon-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" aria-hidden="true">
                     <path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path>
                 </svg>
-                <svg id="sun-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                <svg id="sun-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" aria-hidden="true">
                     <path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path>
                 </svg>
             </li>
@@ -99,65 +99,38 @@
         </section>
 
         <section id="contact">
-
+            <h1>Find me on the internet</h1>
+            <article>
+                <p>Want to get in touch with me? Or just stopping in to see what I'm up to? Come check out my socials!</p>
+            </article>
+            <ul class="socials" aria-label="Social media">
+                <li>
+                    <a href="https://github.com/LeeSpencer/" target="_blank" rel="noreferrer noopener" aria-label="GitHub (opens in a new tab)" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/mr-spencer-lee/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+                            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.goodreads.com/user/show/181669453-spencer-lee" target="_blank" rel="noreferrer noopener" aria-label="Goodreads (opens in a new tab)" title="Goodreads">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+                            <path d="M663.8 382.4c10.2 74.6-9.4 158-71.8 201.4-44.6 31-105.6 28.2-141.6 11.4-74.2-34.6-99-117.2-93.6-194.4 8.6-121.8 81.8-175.8 150.6-175 93.8-0.4 143.6 63.6 156.4 156.6zM960 176v672c0 61.8-50.2 112-112 112H176c-61.8 0-112-50.2-112-112V176c0-61.8 50.2-112 112-112h672c61.8 0 112 50.2 112 112zM724 626.4s-0.2-68-0.2-434.6h-58v80.6c-1.6 0.6-2.4-1-3.2-2.4-19.2-41.4-71.8-92.6-152-92-103.8 0.8-174.4 62.4-201.2 155.6-8.6 29.8-11.6 60.2-11 91.2 3.4 155.8 90.2 235.6 224.8 230.4 57.8-2.2 109-34 138-90.4 1-2 2.2-3.8 3.4-5.8 0.4 0.2 0.8 0.2 1.2 0.4 0.6 7.6 0.4 61.4 0.2 69-0.4 29.6-4 59-14.4 87-15.6 42-44.6 69.4-89 79-35.6 7.8-71.2 7.6-106.4-2.4-43-12.2-73-38-82.2-83.6-0.6-3.2-2.6-2.6-4.6-2.6h-53.6c1.6 21.2 6.4 40.6 17 58.4 48.4 81 165.4 97 256.4 74.8 99.8-24.6 134.6-109.8 134.8-212.6z" fill=""></path>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
         </section>
 
         <section id="copyright">
             <p><small>© 2024 | Spencer Lee</small></p>
         </section>
-
-                <!--
-                <div class="no-js">
-                    <h1>About Me</h1>
-
-                    <div class="left-column">
-                        <h2>Essentials</h2>
-                        <ul>
-                            <li>Age: 24</li>
-                            <li>Location: Charlotte, MI, USA</li>
-                            <li>Expertise: Frontend, Game Development</li>
-                            <li>Education:
-                                <ul>
-                                    <li>Vassar College | Bachelor's Degree, Computer Science (GPA: 3.94)</li>
-                                    <li>Lansing Community College | Associate Degree, Computer Science (GPA: 3.78)</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="right-column">
-                        <h2>Less Essentials</h2>
-                        <ul>
-                            <li>Likes: marshmallows (for eating), guinea pigs (not for eating)</li>
-                            <li>Hobbies: cycling, gardening, cooking</li>
-                            <li>Currently learning:  User experience design</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>-->
-
-        
-
-            <!-- Resume from my Google Drive 
-            <section id="resume">
-                <h1>Resume</h1>
-                <iframe frameborder="0" scrolling="no"
-                    src="https://drive.google.com/file/d/1LT_lM2DSyn0dePeBM09oyxjPwGs8Dogu/preview">
-                </iframe>
-            </section>-->
-
-            <!-- Contact info 
-            <section id="contact">
-                <h1>Contact</h1>
-                <h2>Reach out to me about anything!</h2>
-                <p>
-                    <br/>
-                    <a href="mailto:mr.lee.spencer@gmail.com" target="_blank">mr.lee.spencer@gmail.com</a>
-                    <br/>
-                    <br/>
-                    <br/>
-                </p>
-            </section>-->
     </main>
 </body>
 

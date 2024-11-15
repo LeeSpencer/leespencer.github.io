@@ -285,10 +285,6 @@ section ol:hover .card {
     width: 100%;
 }
 
-/****************************************/
-/*            About Section             */
-/****************************************/
-
 
 /****************************************/
 /*              Work section            */
@@ -311,6 +307,38 @@ section ol:hover .card {
     border-radius: 0.25rem;
     max-width: 100%;
     height: auto;
+}
+
+/****************************************/
+/*            Socials Section           */
+/****************************************/
+
+.socials {
+    display: flex;
+    align-items: center;
+    fill: rgb(var(--primary-color));
+    list-style: none;
+    padding: 0;
+}
+
+.socials a {
+    color: rgb(var(--primary-color));
+}
+
+.socials li {
+    margin-right: 1.25rem;
+    opacity: 0.7;
+    transition-timing-function: var(--ease-in-out);
+    transition-duration: var(--transition-time);
+}
+
+.socials li:hover {
+    opacity: 1;
+}
+
+.socials svg {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 
