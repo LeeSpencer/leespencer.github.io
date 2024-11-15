@@ -343,6 +343,9 @@ section ol:hover .card {
 /****************************************/
 /*          Projects section            */
 /****************************************/
+.project-image {
+    padding-top: 0.25rem;
+}
 
 .project-image img {
     border: 2px solid rgba(var(--primary-color), 0.3);
