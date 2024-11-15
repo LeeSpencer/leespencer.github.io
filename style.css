@@ -43,17 +43,17 @@
     --rounded-rect: .375rem;
 
     /* Default dark mode */
-    --primary-color: 212, 212, 216;
+    --primary-color: 240, 237, 204;
     --primary-color-heading: 255, 255, 255;
-    --background-color: 24, 24, 27;
-    --accent-color: 94, 234, 212;
+    --background-color: 2, 52, 63;
+    --accent-color: 204, 240, 237;
 }
 
 .light-mode {
-    --primary-color: 63, 63, 70;
+    --primary-color: 2, 52, 63;
     --primary-color-heading: 0, 0, 0;
-    --background-color: 244, 244, 245;
-    --accent-color: 48, 45, 120;
+    --background-color: 240, 237, 204;
+    --accent-color: 63, 2, 52;
 }
 
 /****************************************/
@@ -157,6 +157,7 @@ section ol:hover .card {
     font-size: 1em;
     font-weight: 600;
     margin-top: 0;
+    color: rgb(var(--primary-color-heading));
 }
 
 .card:hover h2 {
