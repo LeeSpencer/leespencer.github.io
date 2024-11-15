@@ -198,7 +198,7 @@ section ol:hover .card {
     justify-content: flex-end;
     align-items: center;
     gap: 0.5rem;
-    padding: 1.25rem 0;
+    padding: 1rem 0;
 }
 
 .page-nav ul {
@@ -224,7 +224,7 @@ section ol:hover .card {
 }
 
 .page-nav a:hover, .page-nav input:hover {
-    background-color: rgba(var(--primary-color), 0.1) !important;
+    background-color: rgba(var(--primary-color), 0.15) !important;
 }
 
 .logo {
