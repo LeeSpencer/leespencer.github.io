@@ -145,6 +145,11 @@ section article p {
     bottom: -1.5rem;
     left: -1.5rem;
     right: -1.5rem;
+    pointer-events: none;
+}
+
+.card-link .card-bg {
+    pointer-events: auto;
 }
 
 .card:hover .card-bg {
