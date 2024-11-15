@@ -19,7 +19,7 @@
     --primary-color: 63, 63, 70;
     --primary-color-heading: 0, 0, 0;
     --background-color: 244, 244, 245;
-    --accent-color: 94, 234, 212;
+    --accent-color: 48, 45, 120;
 }
 
 /****************************************/
@@ -34,7 +34,6 @@ body {
     color: rgb(var(--primary-color));
     background-color: rgb(var(--background-color));
     font-family: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    
 }
 
 main {
@@ -69,6 +68,11 @@ section article p {
 /*              Hover cards             */
 /****************************************/
 
+.card-container, .card-container ul {
+    list-style: none;
+    padding: 0;
+}
+
 .card-link h2::after {
     content: "➜";
     display: inline-block;
@@ -88,6 +92,7 @@ section article p {
     position: relative;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    gap: 1rem;
     margin-bottom: 3rem;
     transition-timing-function: var(--ease-in-out);
     transition-duration: var(--transition-time);
@@ -189,7 +194,7 @@ section ol:hover .card {
 }
 
 .page-nav ul {
-    list-style-type: none;
+    list-style: none;
     text-align: center;
     overflow: hidden;
 }
@@ -244,7 +249,7 @@ section ol:hover .card {
     -webkit-appearance: none;
     appearance: none;
     /* For iOS < 15 to remove gradient background */
-    background-color: rgba(0,0,0,0);
+    background-color: transparent;
     /* Not removed via appearance */
     margin: 0;
     
@@ -287,10 +292,6 @@ section ol:hover .card {
 /****************************************/
 /*              Work section            */
 /****************************************/
-#work ol, #work ul {
-    list-style: none;
-    padding: 0;
-}
 
 .work-years {
     text-transform: uppercase;
@@ -303,6 +304,13 @@ section ol:hover .card {
 /****************************************/
 /*          Projects section            */
 /****************************************/
+
+.project-image img {
+    border: 2px solid rgba(var(--primary-color), 0.3);
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
 
 
 /****************************************/
