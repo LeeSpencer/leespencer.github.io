@@ -134,10 +134,6 @@ section article p {
     transition-duration: var(--transition-time);
 }
 
-.card:hover {
-    opacity: 1 !important;
-}
-
 .card-bg {
     border-radius: var(--rounded-rect);
     position: absolute;
@@ -154,10 +150,6 @@ section article p {
 
 .card:hover .card-bg {
     background-color: rgba(var(--primary-color), 0.1);
-}
-
-section ol:hover .card {
-    opacity: 0.5;
 }
 
 .card h2 {
@@ -195,6 +187,16 @@ section ol:hover .card {
 
 .card a {
     text-decoration: none;
+}
+
+@media (hover: hover) {
+    section ol:hover .card {
+        opacity: 0.5;
+    }
+
+    .card:hover {
+        opacity: 1 !important;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -256,7 +258,7 @@ section ol:hover .card {
     justify-content: flex-end;
     align-items: center;
     gap: 0.5rem;
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .page-nav ul {
