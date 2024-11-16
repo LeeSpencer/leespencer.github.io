@@ -80,7 +80,7 @@ section:first-child {
     margin-top: 0;
 }
 
-section {
+section, footer {
     max-width: var(--content-max-width);
     margin-left: auto;
     margin-right: auto;
