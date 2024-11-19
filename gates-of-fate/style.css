@@ -581,6 +581,7 @@ border-radius: 10px;
   top: 16vw; 
   right: 50vw; 
   opacity: 0;
+  pointer-events: none;
 }
 
 /* Monster's health bar */
