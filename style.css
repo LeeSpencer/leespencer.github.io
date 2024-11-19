@@ -157,9 +157,11 @@ section article p {
     font-weight: 600;
     margin-top: 0;
     color: rgb(var(--primary-color-heading));
+    transition-duration: var(--transition-time);
+    transition-timing-function: var(--ease-in-out);
 }
 
-.card:hover h2 {
+.card a:hover h2, .card .links li a:hover {
     color: rgb(var(--accent-color));
 }
 
@@ -168,7 +170,27 @@ section article p {
     margin-top: 0.5rem;
 }
 
-.card .skills {
+.card .links li {
+    margin-right: 1em;
+    font-size: .875rem;
+    font-weight: 600;
+    margin-right: 1em;
+    z-index: 1
+}
+
+.card .links li a {
+    color: rgb(var(--primary-color));
+    fill: rgb(var(--primary-color));
+    transition-duration: var(--transition-time);
+    transition-timing-function: var(--ease-in-out);
+}
+
+.card .links svg {
+    width: 0.75em;
+    height: 0.75em;
+}
+
+.card .skills, .card .links {
     display: flex;
     flex-flow: row wrap;
     margin-top: 0.825rem;
@@ -278,7 +300,7 @@ section article p {
     cursor: pointer;
     border-radius: var(--rounded-rect);
     transition-duration: var(--transition-time);
-    transition-property: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
     color: rgb(var(--primary-color));
     text-transform: lowercase;
 }
