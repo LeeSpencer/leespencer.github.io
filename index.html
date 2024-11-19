@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <link href="normalize.css" type="text/css" rel="stylesheet">
+    <link href="style.css" type="text/css" rel="stylesheet">
+
     <!-- Favicon stuff -->
     <link rel="icon" type="image/png" href="/site_files/favicons/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/site_files/favicons/favicon.svg" />
@@ -16,14 +19,12 @@
     <link rel="preload" href="/fonts/inter-v18-latin-600.woff2" as="font" type="font/woff2" crossorigin>
     <!-- End font loading -->
 
+    <script defer src="/js/main.js"></script>
+
     <meta charset="utf-8">
     <title>Spencer Lee</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Spencer Lee">
-
-    <link href="normalize.css" type="text/css" rel="stylesheet">
-    <link href="style.css" type="text/css" rel="stylesheet">
-    <script defer src="/js/main.js"></script>
 </head>
 
 <body id="top">
@@ -59,10 +60,10 @@
             <li><a href="#contact">Contact</a></li>
             <li class="theme-button">
                 <input aria-label="Change dark or light theme" type="checkbox" name="theme" autocomplete="off" />
-                <svg id="moon-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" aria-hidden="true">
+                <svg id="svg-moon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" aria-hidden="true">
                     <path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path>
                 </svg>
-                <svg id="sun-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" aria-hidden="true">
+                <svg id="svg-sun" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256" aria-hidden="true">
                     <path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path>
                 </svg>
             </li>

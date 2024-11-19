@@ -35,7 +35,7 @@
 
     function setupThemeButton() {
         document.querySelector(".theme-button").addEventListener("click", () => {
-            document.documentElement.classList.toggle('light-mode');
+            document.documentElement.classList.toggle("light-mode");
         });
     }
 
