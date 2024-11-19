@@ -109,20 +109,18 @@ section article p {
     padding: 0;
 }
 
-.card-link h2::after {
-    content: "➜";
-    display: inline-block;
-    position: absolute;
-    width: 20px;
-    transform: rotate(-35deg);
+.card-link h2 svg {
+    width: 1em;
+    height: 1em;
     transition-timing-function: var(--ease-in-out);
     transition-duration: var(--transition-time);
-    margin-left: 0.5rem;
+    margin-left: 0.25em;
     color: rgba(var(--accent-color), 0.6);
+    vertical-align: middle;
 }
 
-.card.card-link:hover h2::after {
-    transform: translate(25%, -25%) rotate(-45deg);
+.card.card-link a:hover h2 svg {
+    transform: translate(25%, -25%);
 }
 
 .card {
