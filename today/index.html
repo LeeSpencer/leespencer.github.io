@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Today</title>
+    <meta name="viewport" content="width=device-width, 
+        user-scalable=no, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Favicon stuff -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <!-- End favicon stuff -->
+
+    <!-- CSS and JS -->
+    <link href="style.css" rel="stylesheet">
+    <script src="today.js" defer></script>
+</head>
+
+<!-- The body is selected as the game container -->
+<body id="game-container">
+
+    <!-- Heart oader -->
+    <div id="loader">
+        <p style="display: inline-block">Loading...</p>
+        <div class="lds-heart"><div></div></div>
+    </div>
+
+    <!-- Next/previous buttons -->
+    <!-- <div id="prev-btn" class="side-btn"><</div> -->
+    <div id="next-btn" class="loading side-btn">
+        <div class="unselectable">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 256 256" fill="currentColor">
+                <path d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <div id="poem-modal">
+        <p style="text-decoration: underline;">
+            Today
+        </p>
+        <p>
+            Sun bites<br>
+            and city howls.<br>
+            Streets hunger<br>
+            while sand prowls.<br>
+        </p>
+        <p>
+            A voyage through golden ocean's end,<br>
+            a sea of restless thoughts.<br>
+            From horizon to beyond<br>
+            rolling waves show sharp claws<br>
+            and I bare my teeth back.<br>
+        </p>
+        <p>
+            Groaning winds bleed<br>
+            the sky clear;<br>
+            parched air feeds<br>
+            on dried tears.<br>
+        </p>
+        <p>
+            How do dreams dawn under tired skies<br>
+            when shadows stretch<br>
+            and grief begins to wake...?<br>
+        </p>
+        <p>
+            What shades of comfort bloom<br>
+            when arduous passage<br>
+            is met with longer strides?<br>
+        </p>
+        <p>
+            Each day in passing may yet provide.<br>
+            Until the time comes to be tried,<br>
+            today is what remains.<br>
+            Tomorrow is all the same.<br>
+        </p>
+        <p>
+            Let us see what happens
+        </p>
+    </div>
+
+    <div class="loading" id="canvas-wrapper">
+        <canvas id="game-canvas"></canvas>
+    </div>
+</body>
+
+</html>

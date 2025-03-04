@@ -1,0 +1,284 @@
+
+/*/////////////////////////////////*/
+/* General element styles          */
+/*/////////////////////////////////*/
+
+/* Get rid of annoying automatic margins/padding, just override when needed */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensures the document body logically fits the size of the screen */
+html {
+    height: 100%;
+    width: 100%;
+}
+
+/* Also ensures the document body logically fits the size of the screen (no scrollbars either) */
+body {
+    background-color: black; 
+    margin: 0; 
+    padding: 0; 
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+
+    /* A container position other than static is required for canvas/wrapper positioning (i.e. bottom center) to work */
+    position: relative;
+
+    /* Set page font families */
+    font-family: 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+/*/////////////////////////////////*/
+/*      Preloader styling          */
+/*/////////////////////////////////*/
+
+#loader {
+    font-size: 1.5em;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    color: white;
+    /* width: 180px; */
+}
+
+#loader.loaded {
+    animation: pop-in 0.5s ease forwards;
+    -webkit-animation: pop-in 0.5s ease forwards;
+}
+@keyframes pop-in {
+    from{
+        transform: scale(1);
+    }
+    30%{
+        transform: scale(1.2);
+    }
+    to{
+        transform: scale(0);
+    }
+}
+@-webkit-keyframes pop-in {
+    from{
+        -webkit-transform: scale(1);
+    }
+    30%{
+        -webkit-transform: scale(1.2);
+    }
+    to{
+        -webkit-transform: scale(0);
+    }
+}
+
+.lds-heart {
+    display: inline-block;
+    position: relative;
+    width: 52px;
+    height: 52px;
+    transform: rotate(45deg);
+    transform-origin: 40px 40px;
+    -webkit-transform: rotate(45deg);
+    -webkit-transform-origin: 40px 40px;
+}
+.lds-heart div {
+    top: 32px;
+    left: 32px;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #fcf;
+    animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: #fcf;
+}
+.lds-heart div:before {
+    left: -16px;
+    border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+    top: -16px;
+    border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+    0% {
+        transform: scale(0.95);
+    }
+    5% {
+        transform: scale(1.1);
+    }
+    39% {
+        transform: scale(0.85);
+    }
+    45% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+
+}
+
+@-webkit-keyframes lds-heart {
+    0% {
+        -webkit-transform: scale(0.95);
+    }
+    5% {
+        -webkit-transform: scale(1.1);
+    }
+    39% {
+        -webkit-transform: scale(0.85);
+    }
+    45% {
+        -webkit-transform: scale(1);
+    }
+    60% {
+        -webkit-transform: scale(0.95);
+    }
+    100% {
+        -webkit-transform: scale(0.9);
+    }
+}
+
+/*/////////////////////////////////*/
+/* Misc. element styling           */
+/*/////////////////////////////////*/
+
+
+.side-btn {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    width: 8%;
+    z-index: 1;
+    color: lightgray;
+    text-align: center;
+    transition: color linear 0.2s;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.side-btn:hover {
+    color: white;
+}
+.bounce-animation {
+    animation: bounce 0.25s linear;
+    -webkit-animation: bounce 0.25s linear;
+}
+
+@keyframes bounce {
+    from{
+        transform: scale(1);
+    }
+    30%{
+        transform: scale(0.8);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes bounce {
+    from{
+        -webkit-transform: scale(1);
+    }
+    30%{
+        -webkit-transform: scale(0.8);
+    }
+    to{
+        -webkit-transform: scale(1);
+    }
+}
+
+#prev-btn {
+    background-image: linear-gradient(to left, transparent, rgba(30,30,30,0.9) 100%);
+    left: 0;
+}
+#next-btn {
+    background-image: linear-gradient(to right, transparent, rgba(30,30,30,0.9) 100%);
+    right: 0;
+    transition: color linear 0.2s, right 1s ease;
+}
+#next-btn.side-btn.loading {
+    right: -8%;
+}
+#next-btn svg {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 50%;
+}
+
+#poem-modal {
+    position: relative;
+    z-index: 1;
+}
+
+#poem-modal p {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    color: white;
+    transition: opacity ease 1.5s;
+    font-size: 2em;
+}
+
+#poem-modal p.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Styling for the game canvas */
+/*******************************/
+#game-canvas {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease;
+    opacity: 0;
+}
+
+#canvas-wrapper.loaded #game-canvas {
+    opacity: 1;
+}
+
+
+
+/*/////////////////////////////////*/
+/* Media queries                   */
+/*/////////////////////////////////*/
+
+/* Media queries to set different font sizes for various screen sizes */
+/**********************************************************************/
+
+@media screen and (max-width: 640px) {
+    #poem-modal p {
+        font-size: 1.25em;
+    }
+}
