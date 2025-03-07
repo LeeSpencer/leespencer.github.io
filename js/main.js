@@ -34,8 +34,21 @@
     }
 
     function setupThemeButton() {
-        document.querySelector(".theme-button").addEventListener("click", () => {
+        let themeBtn = document.querySelector(".theme-button");
+
+        themeBtn.querySelector("input").ariaPressed = "false"
+
+        themeBtn.addEventListener("click", event => {
+            let themeBtnInput = event.currentTarget.querySelector("input");
+
             document.documentElement.classList.toggle("light-mode");
+
+            if (themeBtnInput.ariaPressed === "true") {
+                themeBtnInput.ariaPressed = "false";
+            }
+            else {
+                themeBtnInput.ariaPressed = "true";
+            }
         });
     }
 
