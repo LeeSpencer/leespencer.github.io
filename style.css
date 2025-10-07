@@ -275,7 +275,7 @@ section article p {
     max-width: var(--content-max-width);
 }
 
-.page-nav nav menu {
+.page-nav nav ul {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
